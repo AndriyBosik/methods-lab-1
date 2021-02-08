@@ -5,11 +5,11 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    class SystemBlockHullCRUDRepository : CRUDRepository<SystemBlockHull>
+    class SystemBlockHullDAO : DAO<SystemBlockHull>
     {
         private static IDictionary<int, SystemBlockHull> items;
 
-        public SystemBlockHullCRUDRepository()
+        public SystemBlockHullDAO()
         {
             if (items == null)
             {
@@ -17,27 +17,27 @@ namespace ComputerSalon.Repositories
             }
         }
 
-        void CRUDRepository<SystemBlockHull>.Create(SystemBlockHull model)
+        void DAO<SystemBlockHull>.Create(SystemBlockHull model)
         {
             items[model.id] = model;
         }
 
-        void CRUDRepository<SystemBlockHull>.Delete(int id)
+        void DAO<SystemBlockHull>.Delete(int id)
         {
             items.Remove(id);
         }
 
-        SystemBlockHull CRUDRepository<SystemBlockHull>.Read(int id)
+        SystemBlockHull DAO<SystemBlockHull>.Read(int id)
         {
             return items[id];
         }
 
-        IList<SystemBlockHull> CRUDRepository<SystemBlockHull>.ReadAll()
+        IList<SystemBlockHull> DAO<SystemBlockHull>.ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void CRUDRepository<SystemBlockHull>.Update(int id, SystemBlockHull model)
+        void DAO<SystemBlockHull>.Update(int id, SystemBlockHull model)
         {
             items[id] = model;
         }

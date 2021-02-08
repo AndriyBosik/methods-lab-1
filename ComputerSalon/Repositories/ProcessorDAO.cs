@@ -6,11 +6,11 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    class ProcessorCRUDRepository : CRUDRepository<Processor>
+    class ProcessorDAO : DAO<Processor>
     {
         private static IDictionary<int, Processor> items;
 
-        public ProcessorCRUDRepository()
+        public ProcessorDAO()
         {
             if (items == null)
             {
@@ -18,27 +18,27 @@ namespace ComputerSalon.Repositories
             }
         }
 
-        void CRUDRepository<Processor>.Create(Processor model)
+        void DAO<Processor>.Create(Processor model)
         {
             items[model.id] = model;
         }
 
-        void CRUDRepository<Processor>.Delete(int id)
+        void DAO<Processor>.Delete(int id)
         {
             items.Remove(id);
         }
 
-        Processor CRUDRepository<Processor>.Read(int id)
+        Processor DAO<Processor>.Read(int id)
         {
             return items[id];
         }
 
-        IList<Processor> CRUDRepository<Processor>.ReadAll()
+        IList<Processor> DAO<Processor>.ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void CRUDRepository<Processor>.Update(int id, Processor model)
+        void DAO<Processor>.Update(int id, Processor model)
         {
             items[id] = model;
         }

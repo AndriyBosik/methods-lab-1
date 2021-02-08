@@ -5,11 +5,11 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    class MotherboardCRUDRepository : CRUDRepository<Motherboard>
+    class MotherboardDAO : DAO<Motherboard>
     {
         private static IDictionary<int, Motherboard> items;
 
-        public MotherboardCRUDRepository()
+        public MotherboardDAO()
         {
             if (items == null)
             {
@@ -17,27 +17,27 @@ namespace ComputerSalon.Repositories
             }
         }
 
-        void CRUDRepository<Motherboard>.Create(Motherboard model)
+        void DAO<Motherboard>.Create(Motherboard model)
         {
             items[model.id] = model;
         }
 
-        void CRUDRepository<Motherboard>.Delete(int id)
+        void DAO<Motherboard>.Delete(int id)
         {
             items.Remove(id);
         }
 
-        Motherboard CRUDRepository<Motherboard>.Read(int id)
+        Motherboard DAO<Motherboard>.Read(int id)
         {
             return items[id];
         }
 
-        IList<Motherboard> CRUDRepository<Motherboard>.ReadAll()
+        IList<Motherboard> DAO<Motherboard>.ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void CRUDRepository<Motherboard>.Update(int id, Motherboard model)
+        void DAO<Motherboard>.Update(int id, Motherboard model)
         {
             items[id] = model;
         }

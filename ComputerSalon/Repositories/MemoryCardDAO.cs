@@ -5,11 +5,11 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    class MemoryCardCRUDRepository : CRUDRepository<MemoryCard>
+    class MemoryCardDAO : DAO<MemoryCard>
     {
         private static IDictionary<int, MemoryCard> items;
 
-        public MemoryCardCRUDRepository()
+        public MemoryCardDAO()
         {
             if (items == null)
             {
@@ -17,27 +17,27 @@ namespace ComputerSalon.Repositories
             }
         }
 
-        void CRUDRepository<MemoryCard>.Create(MemoryCard model)
+        void DAO<MemoryCard>.Create(MemoryCard model)
         {
             items[model.id] = model;
         }
 
-        void CRUDRepository<MemoryCard>.Delete(int id)
+        void DAO<MemoryCard>.Delete(int id)
         {
             items.Remove(id);
         }
 
-        MemoryCard CRUDRepository<MemoryCard>.Read(int id)
+        MemoryCard DAO<MemoryCard>.Read(int id)
         {
             return items[id];
         }
 
-        IList<MemoryCard> CRUDRepository<MemoryCard>.ReadAll()
+        IList<MemoryCard> DAO<MemoryCard>.ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void CRUDRepository<MemoryCard>.Update(int id, MemoryCard model)
+        void DAO<MemoryCard>.Update(int id, MemoryCard model)
         {
             items[id] = model;
         }

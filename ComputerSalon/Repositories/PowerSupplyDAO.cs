@@ -5,11 +5,11 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    class PowerSupplyCRUDRepository : CRUDRepository<PowerSupply>
+    class PowerSupplyDAO : DAO<PowerSupply>
     {
         private static IDictionary<int, PowerSupply> items;
 
-        public PowerSupplyCRUDRepository()
+        public PowerSupplyDAO()
         {
             if (items == null)
             {
@@ -17,27 +17,27 @@ namespace ComputerSalon.Repositories
             }
         }
 
-        void CRUDRepository<PowerSupply>.Create(PowerSupply model)
+        void DAO<PowerSupply>.Create(PowerSupply model)
         {
             items[model.id] = model;
         }
 
-        void CRUDRepository<PowerSupply>.Delete(int id)
+        void DAO<PowerSupply>.Delete(int id)
         {
             items.Remove(id);
         }
 
-        PowerSupply CRUDRepository<PowerSupply>.Read(int id)
+        PowerSupply DAO<PowerSupply>.Read(int id)
         {
             return items[id];
         }
 
-        IList<PowerSupply> CRUDRepository<PowerSupply>.ReadAll()
+        IList<PowerSupply> DAO<PowerSupply>.ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void CRUDRepository<PowerSupply>.Update(int id, PowerSupply model)
+        void DAO<PowerSupply>.Update(int id, PowerSupply model)
         {
             items[id] = model;
         }

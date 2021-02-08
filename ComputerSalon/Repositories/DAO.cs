@@ -5,7 +5,7 @@ using ComputerSalon.Models;
 
 namespace ComputerSalon.Repositories
 {
-    interface CRUDRepository<T> where T: Base<T>
+    interface DAO<T> where T: Base<T>
     {
         void Create(T model);
 
