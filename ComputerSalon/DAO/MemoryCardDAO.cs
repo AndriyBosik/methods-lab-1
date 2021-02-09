@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using ComputerSalon.Models;
@@ -7,13 +8,13 @@ namespace ComputerSalon.DAO
 {
     class MemoryCardDAO : DAO<MemoryCard>
     {
-        private static IDictionary<int, MemoryCard> items;
+        private static IDictionary<Int32, MemoryCard> items;
 
         public MemoryCardDAO()
         {
             if (items == null)
             {
-                items = new Dictionary<int, MemoryCard>();
+                items = new Dictionary<Int32, MemoryCard>();
                 MemoryCard mc;
                 mc = new MemoryCard("HyperX DDR4-3200 16384MB", 500, 7);
                 items.Add(mc.id, mc);
@@ -29,12 +30,12 @@ namespace ComputerSalon.DAO
             items[model.id] = model;
         }
 
-        public void Delete(int id)
+        public void Delete(Int32 id)
         {
             items.Remove(id);
         }
 
-        public MemoryCard Read(int id)
+        public MemoryCard Read(Int32 id)
         {
             return items[id];
         }
@@ -44,7 +45,7 @@ namespace ComputerSalon.DAO
             return items.Values.ToList();
         }
 
-        public void Update(int id, MemoryCard model)
+        public void Update(Int32 id, MemoryCard model)
         {
             items[id] = model;
         }

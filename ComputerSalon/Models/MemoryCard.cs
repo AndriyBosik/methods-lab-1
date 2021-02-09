@@ -6,14 +6,14 @@ namespace ComputerSalon.Models
 {
     class MemoryCard: Base<MemoryCard>, IPowerConsumer
     {
-        private int neededPower;
+        private Int32 neededPower;
 
-        public MemoryCard(String title, Int32 price, int neededPower): base(title, price)
+        public MemoryCard(String title, Int32 price, Int32 neededPower): base(title, price)
         {
             this.neededPower = neededPower;
         }
 
-        public int GetPowerConsumption()
+        public Int32 GetPowerConsumption()
         {
             return this.neededPower;
         }

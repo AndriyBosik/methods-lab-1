@@ -1,7 +1,9 @@
-﻿namespace ComputerSalon.Models
+﻿using System;
+
+namespace ComputerSalon.Models
 {
     interface IPowerConsumer
     {
-        int GetPowerConsumption();
+        Int32 GetPowerConsumption();
     }
 }

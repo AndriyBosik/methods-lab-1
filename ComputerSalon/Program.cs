@@ -6,6 +6,7 @@ namespace ComputerSalon
     class Program
     {
         private IDataReader dataReader;
+        private SystemBlock systemBlock;
         public Program(IDataReader dataReader)
         {
             this.dataReader = dataReader;
@@ -24,7 +25,7 @@ namespace ComputerSalon
             var processor = dataReader.GetProcessor();
             var systemBlockHull = dataReader.GetSystemBlockHull();
 
-            var systemBlock = new SystemBlock(systemBlockHull, powerSupply, memoryCard, motherboard, processor);
+            systemBlock = new SystemBlock(systemBlockHull, powerSupply, memoryCard, motherboard, processor);
             if (!systemBlock.IsWorking())
                 Console.WriteLine("System Block can not be collected");
             else

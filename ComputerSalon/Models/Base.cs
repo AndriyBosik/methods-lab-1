@@ -4,11 +4,11 @@ namespace ComputerSalon.Models
 {
     abstract class Base<T> where T : Base<T>
     {
-        private static int counter = 1;
+        private static Int32 counter = 1;
 
         public String Title;
         public Int32 Price;
-        public int id
+        public Int32 id
         { get; private set; }
 
         public Base(String title, Int32 price)

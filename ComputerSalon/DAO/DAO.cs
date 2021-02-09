@@ -9,11 +9,11 @@ namespace ComputerSalon.DAO
     {
         void Create(T model);
 
-        T Read(int id);
+        T Read(Int32 id);
 
-        void Update(int id, T model);
+        void Update(Int32 id, T model);
 
-        void Delete(int id);
+        void Delete(Int32 id);
 
         IList<T> ReadAll();
     }

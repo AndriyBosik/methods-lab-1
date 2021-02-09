@@ -12,7 +12,7 @@ namespace ComputerSalon.Models
             this.neededPower = neededPower;
         }
 
-        public int GetPowerConsumption()
+        public Int32 GetPowerConsumption()
         {
             return this.neededPower;
         }

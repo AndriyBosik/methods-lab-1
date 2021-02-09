@@ -6,9 +6,9 @@ namespace ComputerSalon.Models
     class PowerSupply: Base<PowerSupply>
     {
         // Width, Height, Length
-        public readonly Tuple<int, int, int> Size;
-        public readonly int Power;
-        public PowerSupply(String title, Int32 price, Tuple<int, int, int> size, int power): base(title, price)
+        public readonly Tuple<Int32, Int32, Int32> Size;
+        public readonly Int32 Power;
+        public PowerSupply(String title, Int32 price, Tuple<Int32, Int32, Int32> size, Int32 power): base(title, price)
         {
             this.Size = size;
             this.Power = power;

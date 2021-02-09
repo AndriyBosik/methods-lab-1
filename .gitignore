@@ -1,3 +1,9 @@
+.gitignore
 ComputerSalon/.vs
 ComputerSalon/bin
 ComputerSalon/obj/Debug
+SequenceDiagram.png
+SequenceDiagramXML.png
+UML.png
+UseCase.png
+UseCaseXML.drawio
