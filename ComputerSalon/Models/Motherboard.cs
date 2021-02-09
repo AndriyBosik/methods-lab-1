@@ -6,8 +6,8 @@ namespace ComputerSalon.Models
 {
     class Motherboard: Base<Motherboard>, IPowerConsumer
     {
-        private int neededPower;
-        public Motherboard(int neededPower)
+        private Int32 neededPower;
+        public Motherboard(String title, Int32 price, Int32 neededPower): base(title, price)
         {
             this.neededPower = neededPower;
         }
@@ -15,6 +15,11 @@ namespace ComputerSalon.Models
         public int GetPowerConsumption()
         {
             return this.neededPower;
+        }
+
+        public override string ToString()
+        {
+            return $"Motherboard: {this.Title}(Power Consumption: {this.neededPower}; Price: {this.Price})";
         }
 
     }

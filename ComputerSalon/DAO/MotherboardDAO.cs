@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ComputerSalon.Models;
 
-namespace ComputerSalon.Repositories
+namespace ComputerSalon.DAO
 {
     class MotherboardDAO : DAO<Motherboard>
     {
@@ -14,30 +14,37 @@ namespace ComputerSalon.Repositories
             if (items == null)
             {
                 items = new Dictionary<int, Motherboard>();
+                Motherboard m;
+                m = new Motherboard("ASRock B460 Pro4", 1000, 15);
+                items.Add(m.id, m);
+                m = new Motherboard("Asus Prime H310M-R R2.0", 1234, 10);
+                items.Add(m.id, m);
+                m = new Motherboard("MSI MAG Z390 Tomahawk", 1500, 5);
+                items.Add(m.id, m);
             }
         }
 
-        void DAO<Motherboard>.Create(Motherboard model)
+        public void Create(Motherboard model)
         {
             items[model.id] = model;
         }
 
-        void DAO<Motherboard>.Delete(int id)
+        public void Delete(int id)
         {
             items.Remove(id);
         }
 
-        Motherboard DAO<Motherboard>.Read(int id)
+        public Motherboard Read(int id)
         {
             return items[id];
         }
 
-        IList<Motherboard> DAO<Motherboard>.ReadAll()
+        public IList<Motherboard> ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void DAO<Motherboard>.Update(int id, Motherboard model)
+        public void Update(int id, Motherboard model)
         {
             items[id] = model;
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using ComputerSalon.Models;
 
-namespace ComputerSalon.Repositories
+namespace ComputerSalon.DAO
 {
     class ProcessorDAO : DAO<Processor>
     {
@@ -15,30 +15,37 @@ namespace ComputerSalon.Repositories
             if (items == null)
             {
                 items = new Dictionary<int, Processor>();
+                Processor p;
+                p = new Processor("AMD Ryzen 5 1600 3.2GHz / 16MB", 600, 10);
+                items.Add(p.id, p);
+                p = new Processor("Intel Core i3-10100 3.6GHz / 6MB", 800, 8);
+                items.Add(p.id, p);
+                p = new Processor("Intel Core i5-10600KF 4.1 GHz / 12 MB", 1000, 6);
+                items.Add(p.id, p);
             }
         }
 
-        void DAO<Processor>.Create(Processor model)
+        public void Create(Processor model)
         {
             items[model.id] = model;
         }
 
-        void DAO<Processor>.Delete(int id)
+        public void Delete(int id)
         {
             items.Remove(id);
         }
 
-        Processor DAO<Processor>.Read(int id)
+        public Processor Read(int id)
         {
             return items[id];
         }
 
-        IList<Processor> DAO<Processor>.ReadAll()
+        public IList<Processor> ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void DAO<Processor>.Update(int id, Processor model)
+        public void Update(int id, Processor model)
         {
             items[id] = model;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ComputerSalon.Models;
 
-namespace ComputerSalon.Repositories
+namespace ComputerSalon.DAO
 {
     interface DAO<T> where T: Base<T>
     {

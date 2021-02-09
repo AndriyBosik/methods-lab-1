@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ComputerSalon.Models
 {
@@ -26,6 +27,11 @@ namespace ComputerSalon.Models
                     {
                         this.memoryCard, this.motherboard, this.processor
                     });
+        }
+
+        public Int32 GetPrice()
+        {
+            return systemBlockHull.Price + powerSupply.Price + memoryCard.Price + motherboard.Price + processor.Price;
         }
 
     }

@@ -8,7 +8,7 @@ namespace ComputerSalon.Models
         // Width, Height, Length
         public readonly Tuple<int, int, int> Size;
         public readonly int Power;
-        public PowerSupply(Tuple<int, int, int> size, int power)
+        public PowerSupply(String title, Int32 price, Tuple<int, int, int> size, int power): base(title, price)
         {
             this.Size = size;
             this.Power = power;
@@ -22,6 +22,11 @@ namespace ComputerSalon.Models
                 powerSum += consumer.GetPowerConsumption();
             }
             return powerSum <= Power;
+        }
+
+        public override string ToString()
+        {
+            return $"Power Supply: {this.Title}(Size: {this.Size.Item1}x{this.Size.Item2}x{this.Size.Item3}; Power: {this.Power}; Price: {this.Price})";
         }
     }
 }

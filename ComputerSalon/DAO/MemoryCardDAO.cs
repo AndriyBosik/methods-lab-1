@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ComputerSalon.Models;
 
-namespace ComputerSalon.Repositories
+namespace ComputerSalon.DAO
 {
     class MemoryCardDAO : DAO<MemoryCard>
     {
@@ -14,30 +14,37 @@ namespace ComputerSalon.Repositories
             if (items == null)
             {
                 items = new Dictionary<int, MemoryCard>();
+                MemoryCard mc;
+                mc = new MemoryCard("HyperX DDR4-3200 16384MB", 500, 7);
+                items.Add(mc.id, mc);
+                mc = new MemoryCard("Kingston DDR3-1333 4096MB", 400, 4);
+                items.Add(mc.id, mc);
+                mc = new MemoryCard("Goodram DDR4-2400 4096MB", 450, 3);
+                items.Add(mc.id, mc);
             }
         }
 
-        void DAO<MemoryCard>.Create(MemoryCard model)
+        public void Create(MemoryCard model)
         {
             items[model.id] = model;
         }
 
-        void DAO<MemoryCard>.Delete(int id)
+        public void Delete(int id)
         {
             items.Remove(id);
         }
 
-        MemoryCard DAO<MemoryCard>.Read(int id)
+        public MemoryCard Read(int id)
         {
             return items[id];
         }
 
-        IList<MemoryCard> DAO<MemoryCard>.ReadAll()
+        public IList<MemoryCard> ReadAll()
         {
             return items.Values.ToList();
         }
 
-        void DAO<MemoryCard>.Update(int id, MemoryCard model)
+        public void Update(int id, MemoryCard model)
         {
             items[id] = model;
         }

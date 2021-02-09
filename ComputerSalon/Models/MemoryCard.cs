@@ -8,7 +8,7 @@ namespace ComputerSalon.Models
     {
         private int neededPower;
 
-        public MemoryCard(int neededPower)
+        public MemoryCard(String title, Int32 price, int neededPower): base(title, price)
         {
             this.neededPower = neededPower;
         }
@@ -16,6 +16,11 @@ namespace ComputerSalon.Models
         public int GetPowerConsumption()
         {
             return this.neededPower;
+        }
+
+        public override string ToString()
+        {
+            return $"Memory Card: {this.Title}(Power Consumption: {this.neededPower}, Price: {this.Price})";
         }
     }
 }
