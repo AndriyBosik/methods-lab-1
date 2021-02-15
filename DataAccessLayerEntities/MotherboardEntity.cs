@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    class MotherboardEntity: SystemComponentBaseEntity<MotherboardEntity>
+    public class MotherboardEntity : SystemComponentBaseEntity<MotherboardEntity>
     {
         public Int32 NeedePower
         { get; set; }

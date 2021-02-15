@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{532C8312-5830-4194-9EB5-8A222A3809A3}</ProjectGuid>
+    <ProjectGuid>{8B04E8C6-5CDE-4203-A39E-8E4A821626CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccessLayer</RootNamespace>
-    <AssemblyName>DataAccessLayer</AssemblyName>
+    <RootNamespace>DataAccessLayerEntities</RootNamespace>
+    <AssemblyName>DataAccessLayerEntities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,19 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\IDAO.cs" />
-    <Compile Include="DAO\MemoryCardDAO.cs" />
-    <Compile Include="DAO\MotherboardDAO.cs" />
-    <Compile Include="DAO\PowerSupplyDAO.cs" />
-    <Compile Include="DAO\ProcessorDAO.cs" />
-    <Compile Include="DAO\SystemBlockHullDAO.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="MemoryCardEntity.cs" />
+    <Compile Include="MotherboardEntity.cs" />
+    <Compile Include="PowerSupplyEntity.cs" />
+    <Compile Include="ProcessorEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayerEntities\DataAccessLayerEntities.csproj">
-      <Project>{8b04e8c6-5cde-4203-a39e-8e4a821626ce}</Project>
-      <Name>DataAccessLayerEntities</Name>
-    </ProjectReference>
+    <Compile Include="SystemBlockHullEntity.cs" />
+    <Compile Include="SystemComponentBaseEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

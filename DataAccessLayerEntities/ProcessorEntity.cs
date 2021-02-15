@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    class ProcessorEntity: SystemComponentBaseEntity<ProcessorEntity>
+    public class ProcessorEntity : SystemComponentBaseEntity<ProcessorEntity>
     {
         public Int32 NeededPower
         { get; set; }

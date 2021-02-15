@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    class SystemBlockHullEntity: SystemComponentBaseEntity<SystemBlockHullEntity>
+    public class SystemBlockHullEntity : SystemComponentBaseEntity<SystemBlockHullEntity>
     {
         public Tuple<Int32, Int32, Int32> AvailablePowerSupplySize
         { get; set; }

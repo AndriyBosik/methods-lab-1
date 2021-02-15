@@ -15,7 +15,7 @@ namespace ComputerSalon
         }
         static void Main(string[] args)
         {
-            var sb = new BL.SystemBlock();
+            
 
             //var program = new Program(new ConsoleDataReader());
             //program.TryCollectSet();

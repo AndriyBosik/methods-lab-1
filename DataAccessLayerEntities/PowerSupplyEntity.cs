@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    class PowerSupplyEntity: SystemComponentBaseEntity<PowerSupplyEntity>
+    public class PowerSupplyEntity : SystemComponentBaseEntity<PowerSupplyEntity>
     {
         public Tuple<Int32, Int32, Int32> Size
         { get; set; }

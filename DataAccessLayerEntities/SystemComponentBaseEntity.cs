@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    abstract class SystemComponentBaseEntity<T>: BaseEntity<T> where T: SystemComponentBaseEntity<T>
+    abstract public class SystemComponentBaseEntity<T>: BaseEntity<T> where T: SystemComponentBaseEntity<T>
     {
         public string Title
         { get; set; }

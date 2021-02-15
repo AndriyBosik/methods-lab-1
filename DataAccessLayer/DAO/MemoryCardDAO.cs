@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccessLayer.Entities;
+
+using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
@@ -41,9 +42,9 @@ namespace DataAccessLayer.DAO
             return items[id];
         }
 
-        public void Update(Int32 id, MemoryCardEntity entity)
+        public void Update(MemoryCardEntity entity)
         {
-            items[id] = entity;
+            items[entity.Id] = entity;
         }
 
         public IList<MemoryCardEntity> ReadAll()

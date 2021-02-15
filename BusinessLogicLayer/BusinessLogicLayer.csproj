@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{532C8312-5830-4194-9EB5-8A222A3809A3}</ProjectGuid>
+    <ProjectGuid>{DA1A5108-5594-47BB-94EA-BA33B0739F6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccessLayer</RootNamespace>
-    <AssemblyName>DataAccessLayer</AssemblyName>
+    <RootNamespace>BusinessLogicLayer</RootNamespace>
+    <AssemblyName>BusinessLogicLayer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\IDAO.cs" />
-    <Compile Include="DAO\MemoryCardDAO.cs" />
-    <Compile Include="DAO\MotherboardDAO.cs" />
-    <Compile Include="DAO\PowerSupplyDAO.cs" />
-    <Compile Include="DAO\ProcessorDAO.cs" />
-    <Compile Include="DAO\SystemBlockHullDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayerEntities\DataAccessLayerEntities.csproj">
-      <Project>{8b04e8c6-5cde-4203-a39e-8e4a821626ce}</Project>
-      <Name>DataAccessLayerEntities</Name>
+    <ProjectReference Include="..\BusinessLoginLayerModels\BusinessLoginLayerModels.csproj">
+      <Project>{9e61b477-8016-4aa0-9b86-83d05d452b90}</Project>
+      <Name>BusinessLoginLayerModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    abstract class BaseEntity<T> where T: BaseEntity<T>
+    abstract public class BaseEntity<T> where T: BaseEntity<T>
     {
         private static Int32 counter = 1;
         public Int32 Id

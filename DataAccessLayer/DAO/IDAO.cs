@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataAccessLayer.Entities;
+
+using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
@@ -10,7 +11,7 @@ namespace DataAccessLayer.DAO
 
         T Read(Int32 id);
 
-        void Update(Int32 id, T entity);
+        void Update(T entity);
 
         void Delete(T entity);
 

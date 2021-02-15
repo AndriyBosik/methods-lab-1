@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayerEntities
 {
-    class MemoryCardEntity : SystemComponentBaseEntity<MemoryCardEntity>
+    public class MemoryCardEntity : SystemComponentBaseEntity<MemoryCardEntity>
     {
         public Int32 NeededPower
         { get; set; }
