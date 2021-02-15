@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Collections.Generic;
 using ComputerSalon.Models;
 
 namespace ComputerSalon
@@ -13,8 +15,10 @@ namespace ComputerSalon
         }
         static void Main(string[] args)
         {
-            var program = new Program(new ConsoleDataReader());
-            program.TryCollectSet();
+            var sb = new BL.SystemBlock();
+
+            //var program = new Program(new ConsoleDataReader());
+            //program.TryCollectSet();
         }
 
         public void TryCollectSet()
