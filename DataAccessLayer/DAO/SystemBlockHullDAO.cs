@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    class SystemBlockHullDAO : IDAO<SystemBlockHullEntity>
+    public class SystemBlockHullDAO : IDAO<SystemBlockHullEntity>
     {
         private static IDictionary<Int32, SystemBlockHullEntity> items;
 

@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    class ProcessorDAO : IDAO<ProcessorEntity>
+    public class ProcessorDAO : IDAO<ProcessorEntity>
     {
         private static IDictionary<Int32, ProcessorEntity> items;
 

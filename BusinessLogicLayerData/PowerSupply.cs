@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayerData.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,24 @@ namespace BusinessLogicLayerData
 
         public Int32 Power
         { get; set; }
+
+        public PowerSupply(string title, Int32 price, Tuple<Int32, Int32, Int32> size, Int32 power): base(title, price)
+        {
+            this.Size = size;
+            this.Power = power;
+        }
+
+        public bool HasEnoughPower(IList<IPowerConsumer> consumers)
+        {
+            var totalPower = 0;
+            foreach (var consumer in consumers)
+                totalPower += consumer.NeededPower;
+            return this.Power >= totalPower;
+        }
+
+        public override string ToString()
+        {
+            return $"Power Supply: {this.Title}(Size: {this.Size.Item1}x{this.Size.Item2}x{this.Size.Item3}; Power: {this.Power}; Price: {this.Price})";
+        }
     }
 }

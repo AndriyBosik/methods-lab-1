@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    class MemoryCardDAO: IDAO<MemoryCardEntity>
+    public class MemoryCardDAO: IDAO<MemoryCardEntity>
     {
         private static IDictionary<Int32, MemoryCardEntity> items;
 

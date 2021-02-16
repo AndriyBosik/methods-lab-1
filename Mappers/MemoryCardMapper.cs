@@ -15,5 +15,10 @@ namespace Mappers
         {
             return new MemoryCardEntity(memoryCard.Title, memoryCard.Price, memoryCard.NeededPower);
         }
+
+        public static MemoryCard ToModel(this MemoryCardEntity memoryCard)
+        {
+            return new MemoryCard(memoryCard.Title, memoryCard.Price, memoryCard.NeededPower);
+        }
     }
 }

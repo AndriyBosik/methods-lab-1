@@ -13,5 +13,11 @@ namespace BusinessLogicLayerData
 
         public Int32 Price
         { get; set; }
+
+        public SystemComponentBase(string title, Int32 price)
+        {
+            this.Title = title;
+            this.Price = price;
+        }
     }
 }

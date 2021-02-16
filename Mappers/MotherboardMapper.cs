@@ -15,5 +15,10 @@ namespace Mappers
         {
             return new MotherboardEntity(motherboard.Title, motherboard.Price, motherboard.NeededPower);
         }
+
+        public static Motherboard ToModel(this MotherboardEntity motherboard)
+        {
+            return new Motherboard(motherboard.Title, motherboard.Price, motherboard.NeededPower);
+        }
     }
 }

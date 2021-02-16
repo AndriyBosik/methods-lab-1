@@ -15,5 +15,10 @@ namespace Mappers
         {
             return new ProcessorEntity(processor.Title, processor.Price, processor.NeededPower);
         }
+
+        public static Processor ToModel(this ProcessorEntity processor)
+        {
+            return new Processor(processor.Title, processor.Price, processor.NeededPower);
+        }
     }
 }

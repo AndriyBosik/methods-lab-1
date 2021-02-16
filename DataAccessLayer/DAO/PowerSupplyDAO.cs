@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    class PowerSupplyDAO : IDAO<PowerSupplyEntity>
+    public class PowerSupplyDAO : IDAO<PowerSupplyEntity>
     {
         private static IDictionary<Int32, PowerSupplyEntity> items;
 

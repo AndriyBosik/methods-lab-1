@@ -15,5 +15,10 @@ namespace Mappers
         {
             return new SystemBlockHullEntity(systemBlockHull.Title, systemBlockHull.Price, systemBlockHull.AvailablePowerSupplySize);
         }
+
+        public static SystemBlockHull ToModel(this SystemBlockHullEntity systemBlockHull)
+        {
+            return new SystemBlockHull(systemBlockHull.Title, systemBlockHull.Price, systemBlockHull.AvailablePowerSupplySize);
+        }
     }
 }

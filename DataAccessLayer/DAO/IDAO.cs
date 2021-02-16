@@ -5,7 +5,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    interface IDAO<T> where T: BaseEntity<T>
+    public interface IDAO<T> where T: BaseEntity<T>
     {
         void Create(T entity);
 

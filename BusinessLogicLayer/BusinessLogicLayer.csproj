@@ -41,13 +41,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Containers\AbstractContainer.cs" />
+    <Compile Include="Containers\MemoryCardContainer.cs" />
+    <Compile Include="Containers\MotherboardContainer.cs" />
+    <Compile Include="Containers\PowerSupplyContainer.cs" />
+    <Compile Include="Containers\ProcessorContainer.cs" />
+    <Compile Include="Containers\SystemBlockHullContainer.cs" />
+    <Compile Include="Factories\ContainerFactory.cs" />
+    <Compile Include="Interfaces\IGlobalService.cs" />
+    <Compile Include="Interfaces\ISystemBlock.cs" />
+    <Compile Include="Interfaces\IValidator.cs" />
+    <Compile Include="Interfaces\IContainer.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GlobalService.cs" />
+    <Compile Include="Services\MemoryCardService.cs" />
+    <Compile Include="Services\MotherboardService.cs" />
+    <Compile Include="Services\PowerSupplyService.cs" />
+    <Compile Include="Services\ProcessorService.cs" />
+    <Compile Include="Services\SystemBlockHullService.cs" />
+    <Compile Include="SystemBlocks\SystemBlock.cs" />
+    <Compile Include="SystemComponentType.cs" />
+    <Compile Include="SystemComponentTypeHandler.cs" />
+    <Compile Include="Validators\PowerValidator.cs" />
+    <Compile Include="Validators\SizeValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLoginLayerModels\BusinessLoginLayerModels.csproj">
-      <Project>{9e61b477-8016-4aa0-9b86-83d05d452b90}</Project>
-      <Name>BusinessLoginLayerModels</Name>
+    <ProjectReference Include="..\BusinessLogicLayerData\BusinessLogicLayerData.csproj">
+      <Project>{c836adef-060b-4bdd-99f8-cb8a6e3a08fa}</Project>
+      <Name>BusinessLogicLayerData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayerEntities\DataAccessLayerEntities.csproj">
+      <Project>{8b04e8c6-5cde-4203-a39e-8e4a821626ce}</Project>
+      <Name>DataAccessLayerEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{532c8312-5830-4194-9eb5-8a222a3809a3}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mappers\Mappers.csproj">
+      <Project>{7c07c963-0e76-482b-931e-b9e265740499}</Project>
+      <Name>Mappers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

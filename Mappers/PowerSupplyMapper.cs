@@ -13,7 +13,12 @@ namespace Mappers
     {
         public static PowerSupplyEntity ToEntity(this PowerSupply powerSupply)
         {
-            return new PowerSupplyEntity(powerSupply.Title, powerSupply.Price, powerSupply.Size, powerSupply.Price);
+            return new PowerSupplyEntity(powerSupply.Title, powerSupply.Price, powerSupply.Size, powerSupply.Power);
+        }
+
+        public static PowerSupply ToModel(this PowerSupplyEntity powerSupply)
+        {
+            return new PowerSupply(powerSupply.Title, powerSupply.Price, powerSupply.Size, powerSupply.Power);
         }
     }
 }
