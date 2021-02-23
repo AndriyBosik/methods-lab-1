@@ -1,23 +1,20 @@
 .gitignore
 Salon/.vs
 
-ApplicationConfiguration/bin
-ApplicationConfiguration/obj/Debug
+BusinessLogic/bin
+BusinessLogic/obj/Debug
 
-BusinessLogicLayer/bin
-BusinessLogicLayer/obj/Debug
+DataAccess/bin
+DataAccess/obj/Debug
 
-BusinessLogicLayerData/bin
-BusinessLogicLayerData/obj/Debug
-
-DataAccessLayer/bin
-DataAccessLayer/obj/Debug
-
-DataAccessLayerEntities/bin
-DataAccessLayerEntities/obj/Debug
+Entities/bin
+Entities/obj/Debug
 
 Mappers/bin
 Mappers/obj/Debug
+
+Models/bin
+Models/obj/Debug
 
 Salon/bin
 Salon/obj/Debug

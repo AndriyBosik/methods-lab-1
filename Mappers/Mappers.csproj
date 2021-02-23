@@ -49,13 +49,13 @@
     <Compile Include="SystemBlockHullMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicLayerData\BusinessLogicLayerData.csproj">
-      <Project>{c836adef-060b-4bdd-99f8-cb8a6e3a08fa}</Project>
-      <Name>BusinessLogicLayerData</Name>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{69e33561-8f83-4a1c-a710-3ad1200248b9}</Project>
+      <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccessLayerEntities\DataAccessLayerEntities.csproj">
-      <Project>{8b04e8c6-5cde-4203-a39e-8e4a821626ce}</Project>
-      <Name>DataAccessLayerEntities</Name>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{c5a34188-888b-4c86-aa47-79d679735bce}</Project>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

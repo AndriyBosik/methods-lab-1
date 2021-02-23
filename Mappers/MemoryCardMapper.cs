@@ -1,5 +1,5 @@
-﻿using BusinessLogicLayerData;
-using DataAccessLayerEntities;
+﻿using Models;
+using Entities;
 
 namespace Mappers
 {

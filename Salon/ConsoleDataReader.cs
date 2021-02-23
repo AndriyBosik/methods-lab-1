@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Salon.Interfaces;
 
-using BusinessLogicLayer.Services;
-using BusinessLogicLayer.Interfaces;
-using BusinessLogicLayerData;
+using BusinessLogic.Services;
+using BusinessLogic.Interfaces;
+using Models;
 
 namespace Salon
 {

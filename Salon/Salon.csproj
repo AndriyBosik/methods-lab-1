@@ -53,13 +53,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicLayerData\BusinessLogicLayerData.csproj">
-      <Project>{c836adef-060b-4bdd-99f8-cb8a6e3a08fa}</Project>
-      <Name>BusinessLogicLayerData</Name>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{50783777-8136-43c7-b58f-796a59ddc0d1}</Project>
+      <Name>BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">
-      <Project>{da1a5108-5594-47bb-94ea-ba33b0739f6f}</Project>
-      <Name>BusinessLogicLayer</Name>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{c5a34188-888b-4c86-aa47-79d679735bce}</Project>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
