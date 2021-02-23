@@ -16,9 +16,9 @@ namespace BusinessLogicLayer.Services
     {
         private IDAO<Int32, MemoryCardEntity> dao;
 
-        public MemoryCardService(IDAO<Int32, MemoryCardEntity> dao)
+        public MemoryCardService()
         {
-            this.dao = dao;
+            this.dao = new MemoryCardDAO();
         }
 
         public IList<MemoryCard> GetAll()

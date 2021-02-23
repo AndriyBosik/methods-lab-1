@@ -16,9 +16,9 @@ namespace BusinessLogicLayer.Services
     {
         private IDAO<Int32, MotherboardEntity> dao;
 
-        public MotherboardService(IDAO<Int32, MotherboardEntity> dao)
+        public MotherboardService()
         {
-            this.dao = dao;
+            this.dao = new MotherboardDAO();
         }
 
         public IList<Motherboard> GetAll()

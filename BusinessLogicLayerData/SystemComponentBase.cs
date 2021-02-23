@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using BusinessLogicLayerData.Interfaces;
+
 namespace BusinessLogicLayerData
 {
     abstract public class SystemComponentBase
@@ -19,5 +21,7 @@ namespace BusinessLogicLayerData
             this.Title = title;
             this.Price = price;
         }
+
+        public abstract string ShowInformation();
     }
 }

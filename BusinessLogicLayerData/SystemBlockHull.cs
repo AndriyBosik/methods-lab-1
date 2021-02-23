@@ -23,7 +23,7 @@ namespace BusinessLogicLayerData
                     ps.Size.Item3 <= this.AvailablePowerSupplySize.Item3;
         }
 
-        public override string ToString()
+        public override string ShowInformation()
         {
             return $"System Block Hull {this.Title}(Available Power Supply Size: {this.AvailablePowerSupplySize.Item1}x{this.AvailablePowerSupplySize.Item2}x{this.AvailablePowerSupplySize.Item3}; Price: {this.Price})";
         }

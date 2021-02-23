@@ -16,9 +16,9 @@ namespace BusinessLogicLayer.Services
     {
         private IDAO<Int32, ProcessorEntity> dao;
 
-        public ProcessorService(IDAO<Int32, ProcessorEntity> dao)
+        public ProcessorService()
         {
-            this.dao = dao;
+            this.dao = new ProcessorDAO();
         }
 
         public IList<Processor> GetAll()

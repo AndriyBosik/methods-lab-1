@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 using Salon.Interfaces;
 
-using BusinessLogicLayer;
+using BusinessLogicLayer.SystemBlocks;
 using BusinessLogicLayer.Interfaces;
-using BusinessLogicLayerData;
 
 namespace Salon
 {
     class Salon
     {
         private IDataReader dataReader;
-        private ISystemBlock systemBlock;
-        public Salon(IDataReader dataReader, ISystemBlock systemBlock)
+        public Salon(IDataReader dataReader)
         {
             this.dataReader = dataReader;
-            this.systemBlock = systemBlock;
         }
 
         public void ProcessSystemBlock()
         {
-            CollectSystemBlock();
+            ISystemBlock systemBlock = CollectSystemBlock();
 
             if (systemBlock.IsWorking())
                 Console.WriteLine($"System block is working. The price is ${systemBlock.Price}");
@@ -32,13 +29,17 @@ namespace Salon
                 Console.WriteLine("System block can not be collected");
         }
 
-        private void CollectSystemBlock()
+        private ISystemBlock CollectSystemBlock()
         {
+            ISystemBlock systemBlock = new SystemBlock();
+
             systemBlock.AddComponent(dataReader.GetMotherboard());
             systemBlock.AddComponent(dataReader.GetMemoryCard());
             systemBlock.AddComponent(dataReader.GetProcessor());
             systemBlock.AddComponent(dataReader.GetPowerSupply());
             systemBlock.AddComponent(dataReader.GetSystemBlockHull());
+
+            return systemBlock;
         }
     }
 }

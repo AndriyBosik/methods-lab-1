@@ -16,9 +16,9 @@ namespace BusinessLogicLayer.Services
     {
         private IDAO<Int32, SystemBlockHullEntity> dao;
 
-        public SystemBlockHullService(IDAO<Int32, SystemBlockHullEntity> dao)
+        public SystemBlockHullService()
         {
-            this.dao = dao;
+            this.dao = new SystemBlockHullDAO();
         }
 
         public IList<SystemBlockHull> GetAll()

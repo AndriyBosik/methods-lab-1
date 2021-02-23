@@ -41,9 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\GlobalDAO.cs" />
     <Compile Include="DAO\IDAO.cs" />
-    <Compile Include="DAO\IGlobalDAO.cs" />
     <Compile Include="DAO\MemoryCardDAO.cs" />
     <Compile Include="DAO\MotherboardDAO.cs" />
     <Compile Include="DAO\PowerSupplyDAO.cs" />

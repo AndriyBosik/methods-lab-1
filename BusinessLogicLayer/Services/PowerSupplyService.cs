@@ -16,9 +16,9 @@ namespace BusinessLogicLayer.Services
     {
         private IDAO<Int32, PowerSupplyEntity> dao;
 
-        public PowerSupplyService(IDAO<Int32, PowerSupplyEntity> dao)
+        public PowerSupplyService()
         {
-            this.dao = dao;
+            this.dao = new PowerSupplyDAO();
         }
 
         public IList<PowerSupply> GetAll()

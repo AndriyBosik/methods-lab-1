@@ -12,18 +12,10 @@ namespace Salon
 {
     public class Program
     {
-        private IGlobalService globalService;
-
-        public Program(IGlobalService globalService)
+        public static void Main(string[] args)
         {
-            this.globalService = globalService;
-        }
-
-        public void Start()
-        {
-            var dataReader = new ConsoleDataReader(globalService);
-            var systemBlock = new SystemBlock();
-            var salon = new Salon(dataReader, systemBlock);
+            var dataReader = new ConsoleDataReader();
+            var salon = new Salon(dataReader);
             salon.ProcessSystemBlock();
 
             Console.ReadKey();

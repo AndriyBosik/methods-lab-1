@@ -48,13 +48,11 @@
     <Compile Include="Containers\ProcessorContainer.cs" />
     <Compile Include="Containers\SystemBlockHullContainer.cs" />
     <Compile Include="Factories\ContainerFactory.cs" />
-    <Compile Include="Interfaces\IGlobalService.cs" />
     <Compile Include="Interfaces\ISystemBlock.cs" />
     <Compile Include="Interfaces\IValidator.cs" />
     <Compile Include="Interfaces\IContainer.cs" />
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\GlobalService.cs" />
     <Compile Include="Services\MemoryCardService.cs" />
     <Compile Include="Services\MotherboardService.cs" />
     <Compile Include="Services\PowerSupplyService.cs" />

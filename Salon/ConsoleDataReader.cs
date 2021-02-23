@@ -14,41 +14,36 @@ namespace Salon
 {
     class ConsoleDataReader: IDataReader
     {
-        private IGlobalService globalService;
-
-        public ConsoleDataReader(IGlobalService globalService)
-        {
-            this.globalService = globalService;
-        }
+        public ConsoleDataReader() {}
 
         public MemoryCard GetMemoryCard()
         {
             Console.WriteLine("Select Memory Card: ");
-            return GetFromConsole(globalService.MemoryCardService);
+            return GetFromConsole(new MemoryCardService());
         }
 
         public Motherboard GetMotherboard()
         {
             Console.WriteLine("Select Motherboard: ");
-            return GetFromConsole(globalService.MotherboardService);
+            return GetFromConsole(new MotherboardService());
         }
 
         public PowerSupply GetPowerSupply()
         {
             Console.WriteLine("Select Power Supply: ");
-            return GetFromConsole(globalService.PowerSupplyService);
+            return GetFromConsole(new PowerSupplyService());
         }
 
         public Processor GetProcessor()
         {
             Console.WriteLine("Select Processor: ");
-            return GetFromConsole(globalService.ProcessorService);
+            return GetFromConsole(new ProcessorService());
         }
 
         public SystemBlockHull GetSystemBlockHull()
         {
             Console.WriteLine("Select System Block Hull: ");
-            return GetFromConsole(globalService.SystemBlockHullService);
+            return GetFromConsole(new SystemBlockHullService());
         }
 
         private T GetFromConsole<T>(IService<T> service) where T : SystemComponentBase
@@ -56,7 +51,7 @@ namespace Salon
             var items = service.GetAll();
             for (var i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{i + 1} - {items[i]}");
+                Console.WriteLine($"{i + 1} - {items[i].ShowInformation()}");
             }
             var number = Convert.ToInt32(Console.ReadLine());
             return items[number - 1];

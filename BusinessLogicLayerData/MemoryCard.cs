@@ -18,7 +18,7 @@ namespace BusinessLogicLayerData
             this.NeededPower = neededPower;
         }
 
-        public override string ToString()
+        public override string ShowInformation()
         {
             return $"Memory Card: {this.Title}(Power Consumption: {this.NeededPower}, Price: {this.Price})";
         }

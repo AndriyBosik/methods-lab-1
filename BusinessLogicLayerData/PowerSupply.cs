@@ -29,7 +29,7 @@ namespace BusinessLogicLayerData
             return this.Power >= totalPower;
         }
 
-        public override string ToString()
+        public override string ShowInformation()
         {
             return $"Power Supply: {this.Title}(Size: {this.Size.Item1}x{this.Size.Item2}x{this.Size.Item3}; Power: {this.Power}; Price: {this.Price})";
         }
