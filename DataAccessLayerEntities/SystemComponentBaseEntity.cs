@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayerEntities
 {
-    abstract public class SystemComponentBaseEntity<T>: BaseEntity<T> where T: SystemComponentBaseEntity<T>
+    abstract public class SystemComponentBaseEntity<K, T>: BaseEntity<K, T> where T: SystemComponentBaseEntity<K, T>
     {
         public string Title
         { get; set; }

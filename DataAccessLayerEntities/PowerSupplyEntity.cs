@@ -2,7 +2,7 @@
 
 namespace DataAccessLayerEntities
 {
-    public class PowerSupplyEntity : SystemComponentBaseEntity<PowerSupplyEntity>
+    public class PowerSupplyEntity : SystemComponentBaseEntity<Int32, PowerSupplyEntity>
     {
         public Tuple<Int32, Int32, Int32> Size
         { get; set; }

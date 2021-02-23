@@ -9,19 +9,19 @@ namespace DataAccessLayer.DAO
 {
     public class GlobalDAO : IGlobalDAO
     {
-        public IDAO<MemoryCardEntity> MemoryCardDAO
+        public IDAO<Int32, MemoryCardEntity> MemoryCardDAO
         { get;  }
 
-        public IDAO<MotherboardEntity> MotherboardDAO
+        public IDAO<Int32, MotherboardEntity> MotherboardDAO
         { get; }
 
-        public IDAO<PowerSupplyEntity> PowerSupplyDAO
+        public IDAO<Int32, PowerSupplyEntity> PowerSupplyDAO
         { get; }
 
-        public IDAO<ProcessorEntity> ProcessorDAO
+        public IDAO<Int32, ProcessorEntity> ProcessorDAO
         { get; }
 
-        public IDAO<SystemBlockHullEntity> SystemBlockHullDAO
+        public IDAO<Int32, SystemBlockHullEntity> SystemBlockHullDAO
         { get; }
 
         public GlobalDAO()

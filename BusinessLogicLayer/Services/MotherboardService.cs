@@ -14,9 +14,9 @@ namespace BusinessLogicLayer.Services
 {
     public class MotherboardService : IService<Motherboard>
     {
-        private IDAO<MotherboardEntity> dao;
+        private IDAO<Int32, MotherboardEntity> dao;
 
-        public MotherboardService(IDAO<MotherboardEntity> dao)
+        public MotherboardService(IDAO<Int32, MotherboardEntity> dao)
         {
             this.dao = dao;
         }

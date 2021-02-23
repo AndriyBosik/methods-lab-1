@@ -2,7 +2,7 @@
 
 namespace DataAccessLayerEntities
 {
-    public class MotherboardEntity : SystemComponentBaseEntity<MotherboardEntity>
+    public class MotherboardEntity : SystemComponentBaseEntity<Int32, MotherboardEntity>
     {
         public Int32 NeededPower
         { get; set; }

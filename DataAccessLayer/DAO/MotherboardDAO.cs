@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    public class MotherboardDAO : IDAO<MotherboardEntity>
+    public class MotherboardDAO : IDAO<Int32, MotherboardEntity>
     {
         private static IDictionary<Int32, MotherboardEntity> items;
 
@@ -20,45 +20,48 @@ namespace DataAccessLayer.DAO
                 MotherboardEntity m;
                 m = new MotherboardEntity
                 {
+                    Key = 1,
                     Title = "ASRock B460 Pro4",
                     Price = 1000,
                     NeededPower = 15
                 };
-                items.Add(m.Id, m);
+                items.Add(m.Key, m);
                 m = new MotherboardEntity
                 {
+                    Key = 2,
                     Title = "Asus Prime H310M-R R2.0",
                     Price = 1234,
                     NeededPower = 10
                 };
-                items.Add(m.Id, m);
+                items.Add(m.Key, m);
                 m = new MotherboardEntity
                 {
+                    Key = 3,
                     Title = "MSI MAG Z390 Tomahawk",
                     Price = 1500,
                     NeededPower = 5
                 };
-                items.Add(m.Id, m);
+                items.Add(m.Key, m);
             }
         }
         public void Create(MotherboardEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public void Delete(MotherboardEntity entity)
         {
-            items.Remove(entity.Id);
+            items.Remove(entity.Key);
         }
 
-        public MotherboardEntity Read(Int32 id)
+        public MotherboardEntity Read(Int32 key)
         {
-            return items[id];
+            return items[key];
         }
 
         public void Update(MotherboardEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public IList<MotherboardEntity> ReadAll()

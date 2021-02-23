@@ -14,9 +14,9 @@ namespace BusinessLogicLayer.Services
 {
     public class PowerSupplyService : IService<PowerSupply>
     {
-        private IDAO<PowerSupplyEntity> dao;
+        private IDAO<Int32, PowerSupplyEntity> dao;
 
-        public PowerSupplyService(IDAO<PowerSupplyEntity> dao)
+        public PowerSupplyService(IDAO<Int32, PowerSupplyEntity> dao)
         {
             this.dao = dao;
         }

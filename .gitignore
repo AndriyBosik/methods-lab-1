@@ -1,11 +1,8 @@
 .gitignore
-ComputerSalon/.vs
+Salon/.vs
 
-ComputerSalon/bin
-ComputerSalon/obj/Debug
-
-DataAccessLayer/bin
-DataAccessLayer/obj/Debug
+ApplicationConfiguration/bin
+ApplicationConfiguration/obj/Debug
 
 BusinessLogicLayer/bin
 BusinessLogicLayer/obj/Debug
@@ -13,11 +10,17 @@ BusinessLogicLayer/obj/Debug
 BusinessLogicLayerData/bin
 BusinessLogicLayerData/obj/Debug
 
+DataAccessLayer/bin
+DataAccessLayer/obj/Debug
+
 DataAccessLayerEntities/bin
 DataAccessLayerEntities/obj/Debug
 
 Mappers/bin
 Mappers/obj/Debug
+
+Salon/bin
+Salon/obj/Debug
 
 SequenceDiagram.png
 SequenceDiagramXML.drawio

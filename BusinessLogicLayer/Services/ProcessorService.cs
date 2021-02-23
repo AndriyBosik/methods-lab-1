@@ -14,9 +14,9 @@ namespace BusinessLogicLayer.Services
 {
     public class ProcessorService : IService<Processor>
     {
-        private IDAO<ProcessorEntity> dao;
+        private IDAO<Int32, ProcessorEntity> dao;
 
-        public ProcessorService(IDAO<ProcessorEntity> dao)
+        public ProcessorService(IDAO<Int32, ProcessorEntity> dao)
         {
             this.dao = dao;
         }

@@ -14,9 +14,9 @@ namespace BusinessLogicLayer.Services
 {
     public class SystemBlockHullService : IService<SystemBlockHull>
     {
-        private IDAO<SystemBlockHullEntity> dao;
+        private IDAO<Int32, SystemBlockHullEntity> dao;
 
-        public SystemBlockHullService(IDAO<SystemBlockHullEntity> dao)
+        public SystemBlockHullService(IDAO<Int32, SystemBlockHullEntity> dao)
         {
             this.dao = dao;
         }

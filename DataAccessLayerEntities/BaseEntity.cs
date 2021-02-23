@@ -2,16 +2,9 @@
 
 namespace DataAccessLayerEntities
 {
-    abstract public class BaseEntity<T> where T: BaseEntity<T>
+    abstract public class BaseEntity<K, T> where T: BaseEntity<K, T>
     {
-        private static Int32 counter = 1;
-        public Int32 Id
+        public K Key
         { get; set; }
-
-        public BaseEntity()
-        {
-            Id = counter;
-            counter++;
-        }
     }
 }

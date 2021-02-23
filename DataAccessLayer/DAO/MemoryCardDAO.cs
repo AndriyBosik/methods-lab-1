@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    public class MemoryCardDAO: IDAO<MemoryCardEntity>
+    public class MemoryCardDAO: IDAO<Int32, MemoryCardEntity>
     {
         private static IDictionary<Int32, MemoryCardEntity> items;
 
@@ -20,46 +20,49 @@ namespace DataAccessLayer.DAO
                 MemoryCardEntity mc;
                 mc = new MemoryCardEntity
                 {
+                    Key = 1,
                     Title = "HyperX DDR4-3200 16384MB",
                     Price = 500,
                     NeededPower = 7
                 };
-                items.Add(mc.Id, mc);
+                items.Add(mc.Key, mc);
                 mc = new MemoryCardEntity
                 {
+                    Key = 2,
                     Title = "Kingston DDR3-1333 4096MB",
                     Price = 400,
                     NeededPower = 4
                 };
-                items.Add(mc.Id, mc);
+                items.Add(mc.Key, mc);
                 mc = new MemoryCardEntity
                 {
+                    Key = 3,
                     Title = "Goodram DDR4-2400 4096MB",
                     Price = 450,
                     NeededPower = 3
                 };
-                items.Add(mc.Id, mc);
+                items.Add(mc.Key, mc);
             }
         }
 
         public void Create(MemoryCardEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public void Delete(MemoryCardEntity entity)
         {
-            items.Remove(entity.Id);
+            items.Remove(entity.Key);
         }
 
-        public MemoryCardEntity Read(Int32 id)
+        public MemoryCardEntity Read(Int32 key)
         {
-            return items[id];
+            return items[key];
         }
 
         public void Update(MemoryCardEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public IList<MemoryCardEntity> ReadAll()

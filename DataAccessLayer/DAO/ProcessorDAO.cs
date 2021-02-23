@@ -8,7 +8,7 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    public class ProcessorDAO : IDAO<ProcessorEntity>
+    public class ProcessorDAO : IDAO<Int32, ProcessorEntity>
     {
         private static IDictionary<Int32, ProcessorEntity> items;
 
@@ -20,45 +20,48 @@ namespace DataAccessLayer.DAO
                 ProcessorEntity p;
                 p = new ProcessorEntity
                 {
+                    Key = 1,
                     Title = "AMD Ryzen 5 1600 3.2GHz / 16MB",
                     Price = 600,
                     NeededPower = 10
                 };
-                items.Add(p.Id, p);
+                items.Add(p.Key, p);
                 p = new ProcessorEntity
                 {
+                    Key = 2,
                     Title = "Intel Core i3-10100 3.6GHz / 6MB",
                     Price = 800,
                     NeededPower = 8
                 };
-                items.Add(p.Id, p);
+                items.Add(p.Key, p);
                 p = new ProcessorEntity
                 {
+                    Key = 3,
                     Title = "Intel Core i5-10600KF 4.1 GHz / 12 MB",
                     Price = 1000,
                     NeededPower = 6
                 };
-                items.Add(p.Id, p);
+                items.Add(p.Key, p);
             }
         }
         public void Create(ProcessorEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public void Delete(ProcessorEntity entity)
         {
-            items.Remove(entity.Id);
+            items.Remove(entity.Key);
         }
 
-        public ProcessorEntity Read(Int32 id)
+        public ProcessorEntity Read(Int32 key)
         {
-            return items[id];
+            return items[key];
         }
 
         public void Update(ProcessorEntity entity)
         {
-            items[entity.Id] = entity;
+            items[entity.Key] = entity;
         }
 
         public IList<ProcessorEntity> ReadAll()

@@ -5,11 +5,12 @@ using DataAccessLayerEntities;
 
 namespace DataAccessLayer.DAO
 {
-    public interface IDAO<T> where T: BaseEntity<T>
+    // K - Primary Key; T - Entity Type
+    public interface IDAO<K, T> where T: BaseEntity<K, T>
     {
         void Create(T entity);
 
-        T Read(Int32 id);
+        T Read(K key);
 
         void Update(T entity);
 
