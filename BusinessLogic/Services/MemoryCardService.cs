@@ -25,5 +25,10 @@ namespace BusinessLogic.Services
         {
             return dao.ReadAll().Select(memoryCard => memoryCard.ToModel()).ToList();
         }
+
+        public void Insert(MemoryCard model)
+        {
+            dao.Create(model.ToEntity());
+        }
     }
 }

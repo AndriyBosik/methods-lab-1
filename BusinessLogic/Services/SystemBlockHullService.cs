@@ -25,5 +25,10 @@ namespace BusinessLogic.Services
         {
             return dao.ReadAll().Select(systemBlockHull => systemBlockHull.ToModel()).ToList();
         }
+
+        public void Insert(SystemBlockHull model)
+        {
+            dao.Create(model.ToEntity());
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace BusinessLogic.Services
         {
             return dao.ReadAll().Select(powerSupply => powerSupply.ToModel()).ToList();
         }
+
+        public void Insert(PowerSupply model)
+        {
+            dao.Create(model.ToEntity());
+        }
     }
 }

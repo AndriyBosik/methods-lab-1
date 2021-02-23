@@ -11,5 +11,7 @@ namespace BusinessLogic.Interfaces
     public interface IService<T> where T: SystemComponentBase
     {
         IList<T> GetAll();
+
+        void Insert(T model);
     }
 }

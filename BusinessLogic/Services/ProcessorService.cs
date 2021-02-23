@@ -25,5 +25,10 @@ namespace BusinessLogic.Services
         {
             return dao.ReadAll().Select(processor => processor.ToModel()).ToList();
         }
+
+        public void Insert(Processor model)
+        {
+            dao.Create(model.ToEntity());
+        }
     }
 }

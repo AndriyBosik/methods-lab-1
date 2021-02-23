@@ -25,5 +25,10 @@ namespace BusinessLogic.Services
         {
             return dao.ReadAll().Select(motherboard => motherboard.ToModel()).ToList();
         }
+
+        public void Insert(Motherboard model)
+        {
+            dao.Create(model.ToEntity());
+        }
     }
 }
