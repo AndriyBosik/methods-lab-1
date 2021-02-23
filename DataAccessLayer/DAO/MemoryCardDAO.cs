@@ -18,11 +18,26 @@ namespace DataAccessLayer.DAO
             {
                 items = new Dictionary<Int32, MemoryCardEntity>();
                 MemoryCardEntity mc;
-                mc = new MemoryCardEntity("HyperX DDR4-3200 16384MB", 500, 7);
+                mc = new MemoryCardEntity
+                {
+                    Title = "HyperX DDR4-3200 16384MB",
+                    Price = 500,
+                    NeededPower = 7
+                };
                 items.Add(mc.Id, mc);
-                mc = new MemoryCardEntity("Kingston DDR3-1333 4096MB", 400, 4);
+                mc = new MemoryCardEntity
+                {
+                    Title = "Kingston DDR3-1333 4096MB",
+                    Price = 400,
+                    NeededPower = 4
+                };
                 items.Add(mc.Id, mc);
-                mc = new MemoryCardEntity("Goodram DDR4-2400 4096MB", 450, 3);
+                mc = new MemoryCardEntity
+                {
+                    Title = "Goodram DDR4-2400 4096MB",
+                    Price = 450,
+                    NeededPower = 3
+                };
                 items.Add(mc.Id, mc);
             }
         }

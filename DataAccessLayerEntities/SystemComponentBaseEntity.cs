@@ -13,11 +13,5 @@ namespace DataAccessLayerEntities
 
         public int Price
         { get; set; }
-
-        public SystemComponentBaseEntity(string title, int price): base()
-        {
-            this.Title = title;
-            this.Price = price;
-        }
     }
 }

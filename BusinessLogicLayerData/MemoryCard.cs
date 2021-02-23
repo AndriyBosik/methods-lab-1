@@ -8,7 +8,7 @@ using BusinessLogicLayerData.Interfaces;
 
 namespace BusinessLogicLayerData
 {
-    public class MemoryCard : SystemComponentBase, IPowerConsumer
+    public class MemoryCard: SystemComponentBase, IPowerConsumer
     {
         public Int32 NeededPower
         { get; set; }

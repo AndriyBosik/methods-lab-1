@@ -18,11 +18,26 @@ namespace DataAccessLayer.DAO
             {
                 items = new Dictionary<Int32, MotherboardEntity>();
                 MotherboardEntity m;
-                m = new MotherboardEntity("ASRock B460 Pro4", 1000, 15);
+                m = new MotherboardEntity
+                {
+                    Title = "ASRock B460 Pro4",
+                    Price = 1000,
+                    NeededPower = 15
+                };
                 items.Add(m.Id, m);
-                m = new MotherboardEntity("Asus Prime H310M-R R2.0", 1234, 10);
+                m = new MotherboardEntity
+                {
+                    Title = "Asus Prime H310M-R R2.0",
+                    Price = 1234,
+                    NeededPower = 10
+                };
                 items.Add(m.Id, m);
-                m = new MotherboardEntity("MSI MAG Z390 Tomahawk", 1500, 5);
+                m = new MotherboardEntity
+                {
+                    Title = "MSI MAG Z390 Tomahawk",
+                    Price = 1500,
+                    NeededPower = 5
+                };
                 items.Add(m.Id, m);
             }
         }

@@ -18,11 +18,29 @@ namespace DataAccessLayer.DAO
             {
                 items = new Dictionary<Int32, PowerSupplyEntity>();
                 PowerSupplyEntity ps;
-                ps = new PowerSupplyEntity("Asus TUF Gaming 650 W 80+ Bronze", 150, new Tuple<Int32, Int32, Int32>(150, 150, 86), 20);
+                ps = new PowerSupplyEntity
+                {
+                    Title = "Asus TUF Gaming 650 W 80+ Bronze",
+                    Price = 150,
+                    Size = new Tuple<Int32, Int32, Int32>(150, 150, 86),
+                    Power = 20
+                };
                 items.Add(ps.Id, ps);
-                ps = new PowerSupplyEntity("GameMax GM-500B", 200, new Tuple<Int32, Int32, Int32>(150, 140, 86), 15);
+                ps = new PowerSupplyEntity
+                {
+                    Title = "GameMax GM-500B",
+                    Price = 200,
+                    Size = new Tuple<Int32, Int32, Int32>(150, 140, 86),
+                    Power = 15
+                };
                 items.Add(ps.Id, ps);
-                ps = new PowerSupplyEntity("DeepCool 650W DQ650-M-V2L", 300, new Tuple<Int32, Int32, Int32>(120, 120, 50), 10);
+                ps = new PowerSupplyEntity
+                {
+                    Title = "DeepCool 650W DQ650-M-V2L",
+                    Price = 300,
+                    Size = new Tuple<Int32, Int32, Int32>(120, 120, 50),
+                    Power = 10
+                };
                 items.Add(ps.Id, ps);
             }
         }

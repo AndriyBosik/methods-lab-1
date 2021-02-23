@@ -13,7 +13,12 @@ namespace Mappers
     {
         public static MotherboardEntity ToEntity(this Motherboard motherboard)
         {
-            return new MotherboardEntity(motherboard.Title, motherboard.Price, motherboard.NeededPower);
+            return new MotherboardEntity
+            {
+                Title = motherboard.Title,
+                Price = motherboard.Price,
+                NeededPower = motherboard.NeededPower
+            };
         }
 
         public static Motherboard ToModel(this MotherboardEntity motherboard)

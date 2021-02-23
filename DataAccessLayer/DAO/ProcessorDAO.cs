@@ -18,11 +18,26 @@ namespace DataAccessLayer.DAO
             {
                 items = new Dictionary<Int32, ProcessorEntity>();
                 ProcessorEntity p;
-                p = new ProcessorEntity("AMD Ryzen 5 1600 3.2GHz / 16MB", 600, 10);
+                p = new ProcessorEntity
+                {
+                    Title = "AMD Ryzen 5 1600 3.2GHz / 16MB",
+                    Price = 600,
+                    NeededPower = 10
+                };
                 items.Add(p.Id, p);
-                p = new ProcessorEntity("Intel Core i3-10100 3.6GHz / 6MB", 800, 8);
+                p = new ProcessorEntity
+                {
+                    Title = "Intel Core i3-10100 3.6GHz / 6MB",
+                    Price = 800,
+                    NeededPower = 8
+                };
                 items.Add(p.Id, p);
-                p = new ProcessorEntity("Intel Core i5-10600KF 4.1 GHz / 12 MB", 1000, 6);
+                p = new ProcessorEntity
+                {
+                    Title = "Intel Core i5-10600KF 4.1 GHz / 12 MB",
+                    Price = 1000,
+                    NeededPower = 6
+                };
                 items.Add(p.Id, p);
             }
         }

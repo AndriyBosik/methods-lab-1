@@ -13,7 +13,12 @@ namespace Mappers
     {
         public static SystemBlockHullEntity ToEntity(this SystemBlockHull systemBlockHull)
         {
-            return new SystemBlockHullEntity(systemBlockHull.Title, systemBlockHull.Price, systemBlockHull.AvailablePowerSupplySize);
+            return new SystemBlockHullEntity
+            {
+                Title = systemBlockHull.Title,
+                Price = systemBlockHull.Price,
+                AvailablePowerSupplySize = systemBlockHull.AvailablePowerSupplySize
+            };
         }
 
         public static SystemBlockHull ToModel(this SystemBlockHullEntity systemBlockHull)
