@@ -47,8 +47,10 @@
     <Compile Include="PowerSupply.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemBlock.cs" />
     <Compile Include="SystemBlockHull.cs" />
     <Compile Include="SystemComponentBase.cs" />
+    <Compile Include="ComponentType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

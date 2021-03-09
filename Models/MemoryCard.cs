@@ -13,14 +13,14 @@ namespace Models
         public Int32 NeededPower
         { get; set; }
 
-        public MemoryCard(string title, Int32 price, Int32 neededPower): base(title, price)
-        {
-            this.NeededPower = neededPower;
-        }
-
         public override string ShowInformation()
         {
             return $"Memory Card: {this.Title}(Power Consumption: {this.NeededPower}, Price: {this.Price})";
+        }
+
+        public override string ToString()
+        {
+            return ShowInformation();
         }
     }
 }

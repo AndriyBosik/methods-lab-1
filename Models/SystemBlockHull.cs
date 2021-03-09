@@ -11,11 +11,6 @@ namespace Models
         public Tuple<Int32, Int32, Int32> AvailablePowerSupplySize
         { get; set; }
 
-        public SystemBlockHull(string title, Int32 price, Tuple<Int32, Int32, Int32> availablePowerSupplySize): base(title, price)
-        {
-            this.AvailablePowerSupplySize = availablePowerSupplySize;
-        }
-
         public bool CanAccommodatePowerSupply(PowerSupply ps)
         {
             return  ps.Size.Item1 <= this.AvailablePowerSupplySize.Item1 &&
@@ -26,6 +21,11 @@ namespace Models
         public override string ShowInformation()
         {
             return $"System Block Hull {this.Title}(Available Power Supply Size: {this.AvailablePowerSupplySize.Item1}x{this.AvailablePowerSupplySize.Item2}x{this.AvailablePowerSupplySize.Item3}; Price: {this.Price})";
+        }
+
+        public override string ToString()
+        {
+            return ShowInformation();
         }
     }
 }

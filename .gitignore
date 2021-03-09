@@ -1,8 +1,17 @@
 .gitignore
-Salon/.vs
+ComputerSalon/.vs
 
-BusinessLogic/bin
-BusinessLogic/obj/Debug
+ApplicationLogic/bin
+ApplicationLogic/obj/Debug
+
+ComputerSalon/bin
+ComputerSalon/obj/Debug
+
+ComputerSalonCLI/bin
+ComputerSalonCLI/obj/Debug
+
+Data/bin
+Data/obj/Debug
 
 DataAccess/bin
 DataAccess/obj/Debug
@@ -10,14 +19,8 @@ DataAccess/obj/Debug
 Entities/bin
 Entities/obj/Debug
 
-Mappers/bin
-Mappers/obj/Debug
-
 Models/bin
 Models/obj/Debug
-
-Salon/bin
-Salon/obj/Debug
 
 SequenceDiagram.png
 SequenceDiagramXML.drawio

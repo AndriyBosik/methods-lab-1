@@ -10,17 +10,13 @@ namespace Models
 {
     abstract public class SystemComponentBase
     {
+        public Int32 Id
+        { get; set; }
         public string Title
         { get; set; }
 
-        public Int32 Price
+        public Double Price
         { get; set; }
-
-        public SystemComponentBase(string title, Int32 price)
-        {
-            this.Title = title;
-            this.Price = price;
-        }
 
         public abstract string ShowInformation();
     }

@@ -42,13 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="ComponentEntity.cs" />
+    <Compile Include="EnergyComponentEntity.cs" />
+    <Compile Include="EnergyProducerEntity.cs" />
     <Compile Include="MemoryCardEntity.cs" />
     <Compile Include="MotherboardEntity.cs" />
     <Compile Include="PowerSupplyEntity.cs" />
     <Compile Include="ProcessorEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemBlockComponentEntity.cs" />
+    <Compile Include="SystemBlockEntity.cs" />
     <Compile Include="SystemBlockHullEntity.cs" />
     <Compile Include="SystemComponentBaseEntity.cs" />
+    <Compile Include="TypeEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
