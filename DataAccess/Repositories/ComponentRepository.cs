@@ -10,7 +10,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Repositories
 {
-    class ComponentRepository: IRepository<Int32, Component>
+    class ComponentRepository: IComponentRepository
     {
         private readonly ComputerSalonContext db;
 
@@ -38,14 +38,14 @@ namespace DataAccess.Repositories
             return db.Components.Find(id);
         }
 
+        public IEnumerable<Component> ReadAllByType(int type)
+        {
+            return db.Components.Where(component => component.Group == type);
+        }
+
         public IEnumerable<Component> ReadAll()
         {
             return db.Components;
-        }
-
-        public IEnumerable<Component> ReadByQuery(ISpecification<Component> query)
-        {
-            return db.Components.AsEnumerable().Where(item => query.IsSatisfiedBy(item));
         }
 
         public void Update(Component entity)

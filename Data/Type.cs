@@ -7,12 +7,8 @@ namespace Data
     public class Type
     {
         [Key]
-        [Column("id")]
-        public Int32 Id
-        { get; set; }
-
-        [Column("title")]
-        public String Title
+        [Column("group")]
+        public Int32 Group
         { get; set; }
 
         [Column("is_multiply")]

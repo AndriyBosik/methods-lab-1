@@ -11,7 +11,7 @@ namespace ApplicationLogic.Interfaces
     public interface IContainer
     {
         Boolean IsMultiply
-        { get; set; }
+        { get; }
 
         void AddComponent(SystemComponentBase systemComponent);
 

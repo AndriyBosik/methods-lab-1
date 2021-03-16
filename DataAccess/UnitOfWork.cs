@@ -9,26 +9,26 @@ using DataAccess.Repositories;
 
 namespace DataAccess
 {
-    public class UnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
         private readonly ComputerSalonContext context;
 
-        public IRepository<Int32, Data.Type> TypeRepository
+        public ICRUDRepository<Int32, Data.Type> TypeRepository
         { get; private set; }
 
-        public IRepository<Int32, SystemBlock> SystemBlockRepository
+        public ISystemBlockRepository SystemBlockRepository
         { get; private set; }
 
-        public IRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
+        public ICRUDRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
         { get; private set; }
 
-        public IRepository<Int32, EnergyProducer> EnergyProducerRepository
+        public IEnergyProducerRepository EnergyProducerRepository
         { get; private set; }
 
-        public IRepository<Int32, EnergyComponent> EnergyComponentRepository
+        public IEnergyComponentRepository EnergyComponentRepository
         { get; private set; }
 
-        public IRepository<Int32, Component> ComponentRepository
+        public IComponentRepository ComponentRepository
         { get; private set; }
 
         public UnitOfWork()

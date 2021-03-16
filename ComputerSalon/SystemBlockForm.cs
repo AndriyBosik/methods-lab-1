@@ -14,8 +14,8 @@ namespace ComputerSalon
 {
     public partial class SystemBlockForm: Form, ISystemBlockView
     {
-        private SystemBlockPresenter presenter;
-        private IDictionary<ComponentType, ListBox> boxes;
+        private ISystemBlockPresenter presenter;
+        private IList<ListBox> boxes;
 
         public SystemBlockForm()
         {
@@ -32,34 +32,36 @@ namespace ComputerSalon
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void UpdateData(IComponentsHolder holder)
-        {
-            boxes[ComponentType.MemoryCard].DataSource = holder.MemoryCards;
-            boxes[ComponentType.Motherboard].DataSource = holder.Motherboards;
-            boxes[ComponentType.PowerSupply].DataSource = holder.PowerSuppliers;
-            boxes[ComponentType.Processor].DataSource = holder.Processors;
-            boxes[ComponentType.SystemBlockHull].DataSource = holder.SystemBlockHulls;
-        }
-
-        public int GetComponentSelectedIndex(ComponentType type)
-        {
-            return boxes[type].SelectedIndex;
-        }
-
         private void CheckSystemBlock(object sender, EventArgs e)
         {
             presenter.Check();
         }
 
+        private void Quit(object sender, EventArgs e)
+        {
+            presenter.FinishApp();
+        }
+
+        public void ShowComponents<T>(IList<T> components) where T: SystemComponentBase
+        {
+            ListBox box = new ListBox();
+            box.Width = 350;
+            box.DataSource = components;
+            box.SelectionMode = SelectionMode.MultiExtended;
+
+            flpComponentsLayout.Controls.Add(box);
+
+            boxes.Add(box);
+        }
+
+        public void Shutdown()
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
         private void FormLoads(object sender, EventArgs e)
         {
-            boxes = new Dictionary<ComponentType, ListBox>();
-
-            boxes[ComponentType.MemoryCard] = lbMemoryCards;
-            boxes[ComponentType.Motherboard] = lbMotherboards;
-            boxes[ComponentType.PowerSupply] = lbPowerSuppliers;
-            boxes[ComponentType.Processor] = lbProcessors;
-            boxes[ComponentType.SystemBlockHull] = lbSystemBlocks;
+            boxes = new List<ListBox>();
 
             presenter = new SystemBlockPresenter(this);
         }
@@ -68,8 +70,8 @@ namespace ComputerSalon
         {
             IList<SystemComponentBase> components = new List<SystemComponentBase>();
 
-            foreach (ComponentType componentType in Enum.GetValues(typeof(ComponentType)))
-                foreach (object component in boxes[componentType].SelectedItems)
+            foreach (ListBox box in boxes)
+                foreach (object component in box.SelectedItems)
                     components.Add((SystemComponentBase)component);
 
             return components;

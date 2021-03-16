@@ -29,21 +29,14 @@ namespace ApplicationLogic.Handlers
 
         public void AddComponent(SystemComponentBase component)
         {
-            SystemComponentTypeHandler handler = new SystemComponentTypeHandler();
-
             this.Price += component.Price;
 
-            ComponentType componentType = handler.GetSystemComponentType(component);
-
-            components[componentType].AddComponent(component);
+            components[component.Type].AddComponent(component);
         }
 
         public bool CanAddOneMore(SystemComponentBase component)
         {
-            SystemComponentTypeHandler handler = new SystemComponentTypeHandler();
-            ComponentType componentType = handler.GetSystemComponentType(component);
-
-            return components[componentType].CanAddOneMoreComponent();
+            return components[component.Type].CanAddOneMoreComponent();
         }
 
         public bool IsWorking()

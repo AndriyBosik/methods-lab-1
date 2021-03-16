@@ -12,24 +12,26 @@ using ApplicationLogic.Handlers;
 
 namespace ComputerSalon.Presenters
 {
-    class SystemBlockPresenter
+    class SystemBlockPresenter: ISystemBlockPresenter
     {
         private ISystemBlockView view;
-        private IComputerService service;
 
         public SystemBlockPresenter(ISystemBlockView view)
         {
             this.view = view;
-            this.service = new ComputerService();
 
             IComponentsHolder holder = new ComponentsHolder();
 
-            view.UpdateData(holder);
+            view.ShowComponents(holder.MemoryCards);
+            view.ShowComponents(holder.Motherboards);
+            view.ShowComponents(holder.PowerSuppliers);
+            view.ShowComponents(holder.Processors);
+            view.ShowComponents(holder.SystemBlockHulls);
         }
 
         public void Check()
         {
-            SystemBlockHandler handler = new SystemBlockHandler();
+            ISystemBlockHandler handler = new SystemBlockHandler();
             IList<SystemComponentBase> components = view.GetSelectedComponents();
 
             foreach (SystemComponentBase component in components)
@@ -48,6 +50,11 @@ namespace ComputerSalon.Presenters
                 view.ShowSuccessMessage("Success", "System Block was successfully collected! The price is: " + handler.Price + "$");
             else
                 view.ShowErrorMessage("Error", "Unfortunatelly, system block can not be collected");
+        }
+
+        public void FinishApp()
+        {
+            view.Shutdown();
         }
     }
 }

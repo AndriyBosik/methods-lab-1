@@ -9,6 +9,7 @@ using Data;
 
 using DataAccess;
 using DataAccess.Specifications;
+using DataAccess.Abstraction;
 
 using ApplicationLogic.Interfaces;
 
@@ -16,7 +17,7 @@ namespace ApplicationLogic.Services
 {
     public class ComputerService: IComputerService
     {
-        private UnitOfWork unitOfWork;
+        private IUnitOfWork unitOfWork;
 
         public ComputerService()
         {
@@ -25,12 +26,9 @@ namespace ApplicationLogic.Services
 
         public IList<Processor> GetProcessors()
         {
-            IList<Processor> processors = GetComponents("Processor").Select(component => new Processor
-            {
-                Id = component.Id,
-                Title = component.Title,
-                Price = component.Price
-            }).ToList();
+            ComponentsMapper mapper = new ComponentsMapper();
+
+            IList<Processor> processors = GetComponents(ComponentType.Processor).Select(mapper.ProcessorMapper).ToList();
 
             RetrieveNeededPower(processors);
 
@@ -39,12 +37,9 @@ namespace ApplicationLogic.Services
 
         public IList<Motherboard> GetMotherboards()
         {
-            IList<Motherboard> motherboards = GetComponents("Motherboard").Select(component => new Motherboard
-            {
-                Id = component.Id,
-                Title = component.Title,
-                Price = component.Price
-            }).ToList();
+            ComponentsMapper mapper = new ComponentsMapper();
+
+            IList<Motherboard> motherboards = GetComponents(ComponentType.Motherboard).Select(mapper.MotherboardMapper).ToList();
 
             RetrieveNeededPower(motherboards);
 
@@ -53,12 +48,9 @@ namespace ApplicationLogic.Services
 
         public IList<MemoryCard> GetMemoryCards()
         {
-            IList<MemoryCard> memoryCards = GetComponents("Memory Card").Select(component => new MemoryCard
-            {
-                Id = component.Id,
-                Title = component.Title,
-                Price = component.Price
-            }).ToList();
+            ComponentsMapper mapper = new ComponentsMapper();
+
+            IList<MemoryCard> memoryCards = GetComponents(ComponentType.MemoryCard).Select(mapper.MemoryCardMapper).ToList();
 
             RetrieveNeededPower(memoryCards);
 
@@ -67,12 +59,9 @@ namespace ApplicationLogic.Services
 
         public IList<PowerSupply> GetPowerSuppliers()
         {
-            IList<PowerSupply> powerSuppliers = GetComponents("Power Supply").Select(component => new PowerSupply
-            {
-                Id = component.Id,
-                Title = component.Title,
-                Price = component.Price
-            }).ToList();
+            ComponentsMapper mapper = new ComponentsMapper();
+
+            IList<PowerSupply> powerSuppliers = GetComponents(ComponentType.PowerSupply).Select(mapper.PowerSupplyMapper).ToList();
 
             RetrieveOtherPowerSuppliersData(powerSuppliers);
 
@@ -81,12 +70,9 @@ namespace ApplicationLogic.Services
 
         public IList<SystemBlockHull> GetSystemBlockHulls()
         {
-            IList<SystemBlockHull> systemBlockHulls = GetComponents("System Block").Select(component => new SystemBlockHull
-            {
-                Id = component.Id,
-                Title = component.Title,
-                Price = component.Price
-            }).ToList();
+            ComponentsMapper mapper = new ComponentsMapper();
+
+            IList<SystemBlockHull> systemBlockHulls = GetComponents(ComponentType.SystemBlockHull).Select(mapper.SystemBlockHullMapper).ToList();
 
             RetrieveOtherSystemBlocksData(systemBlockHulls);
 
@@ -98,9 +84,7 @@ namespace ApplicationLogic.Services
         {
             foreach (SystemBlockHull systemBlockHull in systemBlockHulls)
             {
-                SystemBlockSpecification systemBlockSpecification = new SystemBlockSpecification(systemBlockHull.Id);
-
-                Data.SystemBlock systemBlock = unitOfWork.SystemBlockRepository.ReadByQuery(systemBlockSpecification).FirstOrDefault();
+                SystemBlock systemBlock = unitOfWork.SystemBlockRepository.ReadByComponentId(systemBlockHull.Id);
 
                 systemBlockHull.AvailablePowerSupplySize = new Tuple<Int32, Int32, Int32>
                     (systemBlock.Width, systemBlock.Height, systemBlock.Length);
@@ -111,9 +95,7 @@ namespace ApplicationLogic.Services
         {
             foreach (PowerSupply powerSupply in powerSupplies)
             {
-                EnergyProducerSpecification energyProducerSpecification = new EnergyProducerSpecification(powerSupply.Id);
-
-                EnergyProducer energyProducer = unitOfWork.EnergyProducerRepository.ReadByQuery(energyProducerSpecification).FirstOrDefault();
+                EnergyProducer energyProducer = unitOfWork.EnergyProducerRepository.ReadByComponentId(powerSupply.Id);
 
                 powerSupply.Size = new Tuple<Int32, Int32, Int32>(energyProducer.Width, energyProducer.Height, energyProducer.Length);
                 powerSupply.Power = energyProducer.Power;
@@ -124,18 +106,14 @@ namespace ApplicationLogic.Services
         {
             foreach (var component in components)
             {
-                EnergyComponentSpecification energyComponentSpecification = new EnergyComponentSpecification(component.Id);
-
-                EnergyComponent energyComponent = unitOfWork.EnergyComponentRepository.ReadByQuery(energyComponentSpecification).FirstOrDefault();
+                EnergyComponent energyComponent = unitOfWork.EnergyComponentRepository.ReadByComponentId(component.Id);
                 component.NeededPower = energyComponent.NeededEnergy;
             }
         }
 
-        private IEnumerable<Component> GetComponents(String type)
+        private IEnumerable<Component> GetComponents(ComponentType componentType)
         {
-            ComponentTypeSpecification componentTypeSpecification = new ComponentTypeSpecification(type);
-
-            return unitOfWork.ComponentRepository.ReadByQuery(componentTypeSpecification);
+            return unitOfWork.ComponentRepository.ReadAllByType((Int32) componentType);
         }
     }
 }

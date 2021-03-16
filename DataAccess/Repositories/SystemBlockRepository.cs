@@ -10,7 +10,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Repositories
 {
-    class SystemBlockRepository: IRepository<Int32, SystemBlock>
+    class SystemBlockRepository: ISystemBlockRepository
     {
         private readonly ComputerSalonContext db;
 
@@ -43,9 +43,9 @@ namespace DataAccess.Repositories
             return db.SystemBlocks;
         }
 
-        public IEnumerable<SystemBlock> ReadByQuery(ISpecification<SystemBlock> query)
+        public SystemBlock ReadByComponentId(Int32 componentId)
         {
-            return db.SystemBlocks.AsEnumerable().Where(item => query.IsSatisfiedBy(item));
+            return db.SystemBlocks.Where(component => component.ComponentId == componentId).FirstOrDefault();
         }
 
         public void Update(SystemBlock entity)

@@ -11,17 +11,16 @@ namespace Data
         public Int32 Id
         { get; set; }
 
-        [ForeignKey(nameof(Type))]
-        [Column("type_id")]
-        public Int32 TypeID
-        { get; set; }
-
         [Column("title")]
         public String Title
         { get; set; }
 
         [Column("price")]
         public Double Price
+        { get; set; }
+
+        [Column("group")]
+        public Int32 Group
         { get; set; }
     }
 }

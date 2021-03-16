@@ -23,11 +23,7 @@ namespace ApplicationLogic.Services
 
         public bool IsMultiply(ComponentType componentType)
         {
-            SystemComponentTypeHandler handler = new SystemComponentTypeHandler();
-            string title = handler.GetStringRepresentation(componentType);
-
-            ISpecification<Data.Type> specification = new TypeSpecification(title);
-            return unitOfWork.TypeRepository.ReadByQuery(specification).FirstOrDefault().IsMultiply;
+            return unitOfWork.TypeRepository.Read((Int32) componentType).IsMultiply;
         }
     }
 }

@@ -10,7 +10,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Repositories
 {
-    class EnergyComponentRepository: IRepository<Int32, EnergyComponent>
+    class EnergyComponentRepository: IEnergyComponentRepository
     {
         private readonly ComputerSalonContext db;
 
@@ -43,9 +43,9 @@ namespace DataAccess.Repositories
             return db.EnergyComponents;
         }
 
-        public IEnumerable<EnergyComponent> ReadByQuery(ISpecification<EnergyComponent> query)
+        public EnergyComponent ReadByComponentId(Int32 componentId)
         {
-            return db.EnergyComponents.AsEnumerable().Where(item => query.IsSatisfiedBy(item));
+            return db.EnergyComponents.Where(component => component.ComponentId == componentId).FirstOrDefault();
         }
 
         public void Update(EnergyComponent entity)

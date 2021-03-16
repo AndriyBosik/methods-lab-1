@@ -10,7 +10,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Repositories
 {
-    class SystemBlockComponentRepository : IRepository<Int32, SystemBlockComponent>
+    class SystemBlockComponentRepository : ICRUDRepository<Int32, SystemBlockComponent>
     {
         private readonly ComputerSalonContext db;
 

@@ -15,17 +15,21 @@ namespace ApplicationLogic.Containers
     {
         private IList<T> components;
 
+        private readonly TypeService typeService;
+
         public bool IsMultiply
-        { get; set; }
+        { 
+            get
+            {
+                if (components.Count > 0)
+                    return typeService.IsMultiply(components[0].Type);
+                return false;
+            }
+        }
 
         public AbstractContainer()
         {
-            SystemComponentTypeHandler handler = new SystemComponentTypeHandler();
-            ComponentType componentType = handler.GetSystemComponentType(typeof(T));
-
-            TypeService service = new TypeService();
-
-            IsMultiply = service.IsMultiply(componentType);
+            typeService = new TypeService();
             
             components = new List<T>();
         }

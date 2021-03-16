@@ -14,9 +14,9 @@ namespace ComputerSalon.Abstraction
 
         void ShowErrorMessage(String title, String message);
 
-        void UpdateData(IComponentsHolder holder);
+        void Shutdown();
 
-        int GetComponentSelectedIndex(ComponentType type);
+        void ShowComponents<T>(IList<T> components) where T: SystemComponentBase;
 
         IList<SystemComponentBase> GetSelectedComponents();
     }
