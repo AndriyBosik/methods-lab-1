@@ -14,12 +14,22 @@ namespace ComputerSalon
 {
     public partial class SystemBlockForm: Form, ISystemBlockView
     {
-        private ISystemBlockPresenter presenter;
+        private SystemBlockPresenter presenter;
         private IList<ListBox> boxes;
+
+        public event Action ViewLoaded;
+        public event Action QuitButtonClicked;
+        public event Action CheckButtonClicked;
 
         public SystemBlockForm()
         {
             InitializeComponent();
+
+            boxes = new List<ListBox>();
+
+            presenter = new SystemBlockPresenter(this);
+
+            ViewLoaded.Invoke();
         }
 
         public void ShowErrorMessage(String title, String message)
@@ -34,12 +44,12 @@ namespace ComputerSalon
 
         private void CheckSystemBlock(object sender, EventArgs e)
         {
-            presenter.Check();
+            CheckButtonClicked.Invoke();
         }
 
         private void Quit(object sender, EventArgs e)
         {
-            presenter.FinishApp();
+            QuitButtonClicked.Invoke();
         }
 
         public void ShowComponents<T>(IList<T> components) where T: SystemComponentBase
@@ -48,22 +58,13 @@ namespace ComputerSalon
             box.Width = 350;
             box.DataSource = components;
             box.SelectionMode = SelectionMode.MultiExtended;
-
             flpComponentsLayout.Controls.Add(box);
-
             boxes.Add(box);
         }
 
         public void Shutdown()
         {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void FormLoads(object sender, EventArgs e)
-        {
-            boxes = new List<ListBox>();
-
-            presenter = new SystemBlockPresenter(this);
+            this.Close();
         }
 
         public IList<SystemComponentBase> GetSelectedComponents()

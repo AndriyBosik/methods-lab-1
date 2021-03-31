@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalon", "ComputerSa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalonCLI", "..\ComputerSalonCLI\ComputerSalonCLI.csproj", "{EDA70099-7185-49B6-93A2-9C54185DDC3D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalonMVVM", "..\ComputerSalonMVVM\ComputerSalonMVVM.csproj", "{D911BF34-5F82-4BB6-A009-EF173ACD60DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMModels", "..\MVVMModels\MVVMModels.csproj", "{4B3EAFC8-26B7-425F-8F04-B04102247A9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{EDA70099-7185-49B6-93A2-9C54185DDC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDA70099-7185-49B6-93A2-9C54185DDC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDA70099-7185-49B6-93A2-9C54185DDC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D911BF34-5F82-4BB6-A009-EF173ACD60DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D911BF34-5F82-4BB6-A009-EF173ACD60DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D911BF34-5F82-4BB6-A009-EF173ACD60DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D911BF34-5F82-4BB6-A009-EF173ACD60DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

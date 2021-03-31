@@ -71,7 +71,6 @@ namespace ComputerSalon
             this.Controls.Add(this.bCheck);
             this.Name = "SystemBlockForm";
             this.Text = "Collect your own system block";
-            this.Load += new System.EventHandler(this.FormLoads);
             this.ResumeLayout(false);
 
         }

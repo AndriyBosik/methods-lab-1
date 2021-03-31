@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.Linq;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
 
 using Models;
 
@@ -26,9 +27,12 @@ namespace ApplicationLogic
         public IList<SystemBlockHull> SystemBlockHulls
         { get; set; }
 
+        
+
         public ComponentsHolder()
         {
             IComputerService service = new ComputerService();
+
             MemoryCards = service.GetMemoryCards();
             Motherboards = service.GetMotherboards();
             PowerSuppliers = service.GetPowerSuppliers();

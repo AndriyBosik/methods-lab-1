@@ -41,10 +41,12 @@ namespace ApplicationLogic.Handlers
 
         public bool IsWorking()
         {
+            IValidator countValidator = new CountValidator();
             IValidator sizeValidator = new SizeValidator();
             IValidator powerValidator = new PowerValidator();
+            countValidator.Next = sizeValidator;
             sizeValidator.Next = powerValidator;
-            return sizeValidator.Validate(this);
+            return countValidator.Validate(this);
         }
 
         public IList<IPowerConsumer> GetPowerConsumers()

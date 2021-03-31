@@ -10,6 +10,10 @@ namespace ComputerSalon.Abstraction
 {
     interface ISystemBlockView
     {
+        event Action ViewLoaded;
+        event Action QuitButtonClicked;
+        event Action CheckButtonClicked;
+
         void ShowSuccessMessage(String title, String message);
 
         void ShowErrorMessage(String title, String message);

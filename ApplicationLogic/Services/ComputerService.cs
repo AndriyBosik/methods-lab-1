@@ -84,7 +84,7 @@ namespace ApplicationLogic.Services
         {
             foreach (SystemBlockHull systemBlockHull in systemBlockHulls)
             {
-                SystemBlock systemBlock = unitOfWork.SystemBlockRepository.ReadByComponentId(systemBlockHull.Id);
+                Data.SystemBlock systemBlock = unitOfWork.SystemBlockRepository.ReadByComponentId(systemBlockHull.Id);
 
                 systemBlockHull.AvailablePowerSupplySize = new Tuple<Int32, Int32, Int32>
                     (systemBlock.Width, systemBlock.Height, systemBlock.Length);

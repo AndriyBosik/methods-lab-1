@@ -12,7 +12,7 @@ using ApplicationLogic.Handlers;
 
 namespace ComputerSalon.Presenters
 {
-    class SystemBlockPresenter: ISystemBlockPresenter
+    class SystemBlockPresenter
     {
         private ISystemBlockView view;
 
@@ -20,6 +20,13 @@ namespace ComputerSalon.Presenters
         {
             this.view = view;
 
+            this.view.ViewLoaded += DisplayData;
+            this.view.QuitButtonClicked += FinishApp;
+            this.view.CheckButtonClicked += Check;
+        }
+
+        private void DisplayData()
+        {
             IComponentsHolder holder = new ComponentsHolder();
 
             view.ShowComponents(holder.MemoryCards);
@@ -29,7 +36,7 @@ namespace ComputerSalon.Presenters
             view.ShowComponents(holder.SystemBlockHulls);
         }
 
-        public void Check()
+        private void Check()
         {
             ISystemBlockHandler handler = new SystemBlockHandler();
             IList<SystemComponentBase> components = view.GetSelectedComponents();
@@ -52,7 +59,7 @@ namespace ComputerSalon.Presenters
                 view.ShowErrorMessage("Error", "Unfortunatelly, system block can not be collected");
         }
 
-        public void FinishApp()
+        private void FinishApp()
         {
             view.Shutdown();
         }
