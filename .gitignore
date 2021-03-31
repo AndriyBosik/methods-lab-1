@@ -22,6 +22,12 @@ Entities/obj/Debug
 Models/bin
 Models/obj/Debug
 
+MVVMModels/bin
+MVVMModels/obj/Debug
+
+ComputerSalonMVVM/bin
+ComputerSalonMVVM/obj/Debug
+
 SequenceDiagram.png
 SequenceDiagramXML.drawio
 UML.png
