@@ -6,6 +6,8 @@ using System.Windows.Media;
 using ComputerSalonMVVM.ViewModels;
 using Models;
 
+using ComputerSalonMVVM.Commands;
+
 namespace ComputerSalonMVVM
 {
     /// <summary>
@@ -13,30 +15,9 @@ namespace ComputerSalonMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SystemBlockViewModel vm;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            vm = (SystemBlockViewModel)DataContext;
-        }
-
-        private void ComponentsChanged(object sender, EventArgs args)
-        {
-            vm.SystemBlock.Components.Clear();
-
-            for (Int32 i = 0; i < icComponents.Items.Count; i++)
-            {
-                var container = icComponents.ItemContainerGenerator.ContainerFromIndex(i);
-
-                var lb = VisualTreeHelper.GetChild(container, 0) as ListBox;
-
-                foreach (SystemComponentBase selected in lb.SelectedItems)
-                {
-                    vm.SystemBlock.Components.Add(selected);
-                }
-            }
         }
     }
 }

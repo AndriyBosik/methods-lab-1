@@ -1,51 +1,37 @@
-﻿using System.Linq;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using Models;
-using ApplicationLogic;
-using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 
 using MVVMModels;
+
+using ComputerSalonMVVM.Commands;
 
 namespace ComputerSalonMVVM.ViewModels
 {
     public class SystemBlockViewModel: INotifyPropertyChanged
     {
-        private SystemBlock systemBlock;
-        private ObservableCollection<SystemComponentBase> selected;
-
         public event PropertyChangedEventHandler PropertyChanged;
+        private ICommand checkCommand;
+        private ICommand exitCommand;
 
-        public MVVMModels.ComponentsHolder Holder
-        { get; set; } = new MVVMModels.ComponentsHolder();
-
-        public SystemBlock SystemBlock
+        public ICommand CheckCommand
         {
-            get { return systemBlock; }
-            set {
-                systemBlock = value;
-                OnPropertyChanged("SystemBlock");
-            }
+            get => checkCommand;
         }
 
-        public ObservableCollection<SystemComponentBase> Selected
+        public ICommand ExitCommand
         {
-            get { return selected; }
-            set
-            {
-                selected = value;
-            }
+            get => exitCommand;
         }
+
+        public SystemBlockComponents Components
+        { get; set; }
 
         public SystemBlockViewModel()
         {
-            SystemBlock = new SystemBlock();
+            Components = new SystemBlockComponents();
 
-            Selected = new ObservableCollection<SystemComponentBase>();
+            checkCommand = new CheckSystemBlockCommand(Components);
+            exitCommand = new ExitCommand();
         }
 
         protected virtual void OnPropertyChanged(string propertyName = null)

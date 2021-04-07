@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -9,12 +10,26 @@ using ApplicationLogic.Interfaces;
 
 namespace MVVMModels
 {
-    public class ComponentsHolder
+    public class SystemBlockComponents: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string status;
+
         public IDictionary<ComponentType, ObservableCollection<SystemComponentBase>> Components
         { get; set; }
 
-        public ComponentsHolder()
+        public string Status
+        {
+            get => status;
+            set
+            {
+                status = value;
+                OnPropertyChanged(nameof(Status));
+            }
+        }
+
+        public SystemBlockComponents()
         {
             IComputerService service = new ComputerService();
 
@@ -25,6 +40,11 @@ namespace MVVMModels
             Components[ComponentType.PowerSupply] = new ObservableCollection<SystemComponentBase>(service.GetPowerSuppliers().Cast<SystemComponentBase>().ToList());
             Components[ComponentType.Processor] = new ObservableCollection<SystemComponentBase>(service.GetProcessors().Cast<SystemComponentBase>().ToList());
             Components[ComponentType.SystemBlockHull] = new ObservableCollection<SystemComponentBase>(service.GetSystemBlockHulls().Cast<SystemComponentBase>().ToList());
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

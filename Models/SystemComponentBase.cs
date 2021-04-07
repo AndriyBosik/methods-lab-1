@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 using Models.Interfaces;
 
 namespace Models
 {
-    abstract public class SystemComponentBase
+    abstract public class SystemComponentBase: INotifyPropertyChanged
     {
+        private bool isSelected;
+
+        public bool IsSelected
+        {
+            get => isSelected;
+            set
+            {
+                isSelected = value;
+                OnPropertyChanged(nameof(IsSelected));
+            }
+        }
+
         public Int32 Id
         { get; set; }
 
@@ -22,6 +31,13 @@ namespace Models
         public ComponentType Type
         { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public abstract string ShowInformation();
+
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
