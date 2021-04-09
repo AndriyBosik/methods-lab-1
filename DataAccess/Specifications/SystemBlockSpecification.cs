@@ -8,7 +8,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Specifications
 {
-    public class SystemBlockSpecification: ISpecification<SystemBlock>
+    public class SystemBlockSpecification: ISpecification<SystemBlockHull>
     {
         private Int32 id;
 
@@ -17,7 +17,7 @@ namespace DataAccess.Specifications
             this.id = id;
         }
 
-        public bool IsSatisfiedBy(SystemBlock entity)
+        public bool IsSatisfiedBy(SystemBlockHull entity)
         {
             return entity.ComponentId == id;
         }

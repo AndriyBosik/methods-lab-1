@@ -13,6 +13,9 @@ namespace DataAccess
         public DbSet<Data.Type> Types
         { get; set; }
 
+        public DbSet<SystemBlockHull> SystemBlockHulls
+        { get; set; }
+
         public DbSet<SystemBlock> SystemBlocks
         { get; set; }
 

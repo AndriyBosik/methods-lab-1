@@ -13,13 +13,13 @@ namespace DataAccess
     {
         private readonly ComputerSalonContext context;
 
-        public ICRUDRepository<Int32, Data.Type> TypeRepository
+        public IGenericRepository<Int32, Data.Type> TypeRepository
         { get; private set; }
 
-        public ISystemBlockRepository SystemBlockRepository
+        public ISystemBlockHullRepository SystemBlockRepository
         { get; private set; }
 
-        public ICRUDRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
+        public IGenericRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
         { get; private set; }
 
         public IEnergyProducerRepository EnergyProducerRepository
@@ -36,7 +36,7 @@ namespace DataAccess
             context = new ComputerSalonContext();
 
             TypeRepository = new TypeRepository(context);
-            SystemBlockRepository = new SystemBlockRepository(context);
+            SystemBlockRepository = new SystemBlockHullRepository(context);
             SystemBlockComponentRepository = new SystemBlockComponentRepository(context);
             EnergyProducerRepository = new EnergyProducerRepository(context);
             EnergyComponentRepository = new EnergyComponentRepository(context);

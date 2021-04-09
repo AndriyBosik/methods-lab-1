@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
-using Microsoft.EntityFrameworkCore;
-
 using Data;
-
 using DataAccess.Abstraction;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    class SystemBlockRepository: ISystemBlockRepository
+    class SystemBlockRepository : ISystemBlockRepository
     {
         private readonly ComputerSalonContext db;
 
@@ -33,7 +29,7 @@ namespace DataAccess.Repositories
             }
         }
 
-        public SystemBlock Read(Int32 id)
+        public SystemBlock Read(int id)
         {
             return db.SystemBlocks.Find(id);
         }
@@ -41,11 +37,6 @@ namespace DataAccess.Repositories
         public IEnumerable<SystemBlock> ReadAll()
         {
             return db.SystemBlocks;
-        }
-
-        public SystemBlock ReadByComponentId(Int32 componentId)
-        {
-            return db.SystemBlocks.Where(component => component.ComponentId == componentId).FirstOrDefault();
         }
 
         public void Update(SystemBlock entity)

@@ -11,11 +11,17 @@ namespace ComputerSalonMVVM.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ICommand checkCommand;
+        private ICommand saveCommand;
         private ICommand exitCommand;
 
         public ICommand CheckCommand
         {
             get => checkCommand;
+        }
+
+        public ICommand SaveCommand
+        {
+            get => saveCommand;
         }
 
         public ICommand ExitCommand
@@ -31,6 +37,7 @@ namespace ComputerSalonMVVM.ViewModels
             Components = new SystemBlockComponents();
 
             checkCommand = new CheckSystemBlockCommand(Components);
+            saveCommand = new SaveSystemBlockCommand();
             exitCommand = new ExitCommand();
         }
 

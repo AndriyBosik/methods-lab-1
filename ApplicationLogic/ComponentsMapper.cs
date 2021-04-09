@@ -38,9 +38,9 @@ namespace ApplicationLogic
             return InitWithData(model, component);
         }
 
-        public SystemBlockHull SystemBlockHullMapper(Component component)
+        public Models.SystemBlockHull SystemBlockHullMapper(Component component)
         {
-            SystemBlockHull model = new SystemBlockHull();
+            Models.SystemBlockHull model = new Models.SystemBlockHull();
 
             return InitWithData(model, component);
         }

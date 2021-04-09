@@ -5,7 +5,7 @@ using Data;
 
 namespace DataAccess.Abstraction
 {
-    public interface IEnergyComponentRepository: ICRUDRepository<Int32, EnergyComponent>
+    public interface IEnergyComponentRepository: IGenericRepository<Int32, EnergyComponent>
     {
         EnergyComponent ReadByComponentId(Int32 componentId);
     }

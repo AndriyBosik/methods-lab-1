@@ -7,7 +7,7 @@ using DataAccess.Abstraction;
 
 namespace DataAccess.Repositories
 {
-    class TypeRepository : ICRUDRepository<Int32, Data.Type>
+    class TypeRepository : IGenericRepository<Int32, Data.Type>
     {
         private readonly ComputerSalonContext db;
 

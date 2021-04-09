@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccess.Abstraction
 {
-    public interface ICRUDRepository<K, T>
+    public interface IGenericRepository<K, T>
     {
         void Create(T entity);
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data
 {
-    public class SystemBlockComponent
+    public class SystemBlockHull
     {
         [Key]
         [Column("id")]
@@ -16,9 +16,16 @@ namespace Data
         public Int32 ComponentId
         { get; set; }
 
-        [ForeignKey(nameof(SystemBlockHull))]
-        [Column("system_block_id")]
-        public Int32 SystemBlockId
+        [Column("width")]
+        public Int32 Width
+        { get; set; }
+
+        [Column("height")]
+        public Int32 Height
+        { get; set; }
+
+        [Column("length")]
+        public Int32 Length
         { get; set; }
     }
 }

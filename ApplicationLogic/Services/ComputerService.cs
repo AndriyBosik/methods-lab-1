@@ -68,11 +68,11 @@ namespace ApplicationLogic.Services
             return powerSuppliers;
         }
 
-        public IList<SystemBlockHull> GetSystemBlockHulls()
+        public IList<Models.SystemBlockHull> GetSystemBlockHulls()
         {
             ComponentsMapper mapper = new ComponentsMapper();
 
-            IList<SystemBlockHull> systemBlockHulls = GetComponents(ComponentType.SystemBlockHull).Select(mapper.SystemBlockHullMapper).ToList();
+            IList<Models.SystemBlockHull> systemBlockHulls = GetComponents(ComponentType.SystemBlockHull).Select(mapper.SystemBlockHullMapper).ToList();
 
             RetrieveOtherSystemBlocksData(systemBlockHulls);
 
@@ -80,13 +80,13 @@ namespace ApplicationLogic.Services
 
         }
 
-        private void RetrieveOtherSystemBlocksData(IList<SystemBlockHull> systemBlockHulls)
+        private void RetrieveOtherSystemBlocksData(IList<Models.SystemBlockHull> systemBlockHulls)
         {
-            foreach (SystemBlockHull systemBlockHull in systemBlockHulls)
+            foreach (Models.SystemBlockHull systemBlockHull in systemBlockHulls)
             {
-                Data.SystemBlock systemBlock = unitOfWork.SystemBlockRepository.ReadByComponentId(systemBlockHull.Id);
+                Data.SystemBlockHull systemBlock = unitOfWork.SystemBlockRepository.ReadByComponentId(systemBlockHull.Id);
 
-                systemBlockHull.AvailablePowerSupplySize = new Tuple<Int32, Int32, Int32>
+                systemBlockHull.AvailablePowerSupplySize = new Tuple<int, int, int>
                     (systemBlock.Width, systemBlock.Height, systemBlock.Length);
             }
         }
