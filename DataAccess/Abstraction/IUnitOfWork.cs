@@ -8,10 +8,13 @@ namespace DataAccess.Abstraction
 {
     public interface IUnitOfWork
     {
-        public ISystemBlockHullRepository SystemBlockRepository
+        public ISystemBlockHullRepository SystemBlockHullRepository
         { get; }
 
-        public IGenericRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
+        public ISystemBlockRepository SystemBlockRepository
+        { get; }
+
+        public ISystemBlockComponentRepository SystemBlockComponentRepository
         { get; }
 
         public IEnergyProducerRepository EnergyProducerRepository

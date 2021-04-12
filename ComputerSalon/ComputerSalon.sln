@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalonCLI", "..\Comp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalonMVVM", "..\ComputerSalonMVVM\ComputerSalonMVVM.csproj", "{D911BF34-5F82-4BB6-A009-EF173ACD60DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMModels", "..\MVVMModels\MVVMModels.csproj", "{4B3EAFC8-26B7-425F-8F04-B04102247A9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMModels", "..\MVVMModels\MVVMModels.csproj", "{4B3EAFC8-26B7-425F-8F04-B04102247A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mappers", "..\Mappers\Mappers.csproj", "{FBBABBBC-2AFF-4AAC-A941-2E4941440554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B3EAFC8-26B7-425F-8F04-B04102247A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBABBBC-2AFF-4AAC-A941-2E4941440554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBABBBC-2AFF-4AAC-A941-2E4941440554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBABBBC-2AFF-4AAC-A941-2E4941440554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBABBBC-2AFF-4AAC-A941-2E4941440554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

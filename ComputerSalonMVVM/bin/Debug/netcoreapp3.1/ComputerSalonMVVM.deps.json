@@ -208,6 +208,7 @@
         "dependencies": {
           "Data": "1.0.0",
           "DataAccess": "1.0.0",
+          "Mappers": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
@@ -227,6 +228,16 @@
         },
         "runtime": {
           "DataAccess.dll": {}
+        }
+      },
+      "Mappers/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "Mappers.dll": {}
         }
       },
       "Models/1.0.0": {
@@ -395,6 +406,11 @@
       "sha512": ""
     },
     "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Mappers/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

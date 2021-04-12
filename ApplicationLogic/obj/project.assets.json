@@ -248,6 +248,21 @@
           "bin/placeholder/DataAccess.dll": {}
         }
       },
+      "Mappers/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Data": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Mappers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mappers.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "compile": {
@@ -718,6 +733,11 @@
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
+    "Mappers/1.0.0": {
+      "type": "project",
+      "path": "../Mappers/Mappers.csproj",
+      "msbuildProject": "../Mappers/Mappers.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
@@ -728,6 +748,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Data >= 1.0.0",
       "DataAccess >= 1.0.0",
+      "Mappers >= 1.0.0",
       "Models >= 1.0.0"
     ]
   },
@@ -763,6 +784,9 @@
             },
             "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Data\\Data.csproj": {
               "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Data\\Data.csproj"
+            },
+            "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Mappers\\Mappers.csproj": {
+              "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Mappers\\Mappers.csproj"
             },
             "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Models\\Models.csproj": {
               "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Models\\Models.csproj"

@@ -1,0 +1,16 @@
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Mappers.deps.json
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Mappers.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Mappers.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Data.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\DataAccess.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Models.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\DataAccess.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Data.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\bin\Debug\netcoreapp3.1\Models.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.csprojAssemblyReference.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.AssemblyInfoInputs.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.AssemblyInfo.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.csproj.CoreCompileInputs.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.csproj.CopyComplete
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Mappers\obj\Debug\netcoreapp3.1\Mappers.pdb

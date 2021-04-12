@@ -16,3 +16,5 @@ D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\obj\Debug\netcoreapp3.1
 D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\obj\Debug\netcoreapp3.1\MVVMModels.csproj.CopyComplete
 D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\obj\Debug\netcoreapp3.1\MVVMModels.dll
 D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\obj\Debug\netcoreapp3.1\MVVMModels.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\bin\Debug\netcoreapp3.1\Mappers.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\MVVMModels\bin\Debug\netcoreapp3.1\Mappers.pdb

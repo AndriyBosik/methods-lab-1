@@ -1,25 +1,42 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Input;
+
+using Models;
+
+using ApplicationLogic.Interfaces;
+using ApplicationLogic.Services;
+using System.Windows;
 
 namespace ComputerSalonMVVM.Commands
 {
     class SaveSystemBlockCommand: ICommand
     {
+        private SystemBlock systemBlock;
+        private ISystemBlockService service;
+
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
+        public SaveSystemBlockCommand(SystemBlock systemBlock)
+        {
+            this.service = new SystemBlockService();
+
+            this.systemBlock = systemBlock;
+        }
+
         public bool CanExecute(object parameter)
         {
-            return true;
+            return this.systemBlock != null && this.systemBlock.Components.Count > 0 && !String.IsNullOrEmpty(this.systemBlock.Title);
         }
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("Some message", "Some title");
+            int id = service.Save(systemBlock);
+
+            MessageBox.Show(id + "", "Get your id");
         }
     }
 }

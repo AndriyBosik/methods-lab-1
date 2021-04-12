@@ -15,6 +15,7 @@ namespace ComputerSalonMVVM.Commands
     public class CheckSystemBlockCommand : ICommand
     {
         private SystemBlockComponents components;
+        private SystemBlock systemBlock;
 
         public event EventHandler CanExecuteChanged
         {
@@ -22,8 +23,9 @@ namespace ComputerSalonMVVM.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public CheckSystemBlockCommand(SystemBlockComponents components)
+        public CheckSystemBlockCommand(SystemBlock systemBlock, SystemBlockComponents components)
         {
+            this.systemBlock = systemBlock;
             this.components = components;
         }
 
@@ -34,16 +36,24 @@ namespace ComputerSalonMVVM.Commands
 
         public void Execute(object parameter)
         {
+            systemBlock.Components.Clear();
+
             SystemBlockHandler handler = new SystemBlockHandler();
 
-            this.components.Components.Values
+            IList<SystemComponentBase> selectedComponents = this.components.Components.Values
                 .SelectMany(item => item.ToList())
                 .Where(item => item.IsSelected)
-                .ToList()
-                .ForEach(item => handler.AddComponent(item));
+                .ToList();
+
+            foreach (SystemComponentBase component in selectedComponents)
+                handler.AddComponent(component);
 
             if (handler.IsWorking())
+            {
                 components.Status = $"System Block can be collected. The price is {handler.Price} $";
+                foreach (SystemComponentBase component in selectedComponents)
+                    systemBlock.Components.Add(component);
+            }
             else
                 components.Status = "System Block can not be collected";
         }

@@ -9,17 +9,20 @@ using DataAccess.Repositories;
 
 namespace DataAccess
 {
-    public class UnitOfWork: IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ComputerSalonContext context;
 
         public IGenericRepository<Int32, Data.Type> TypeRepository
         { get; private set; }
 
-        public ISystemBlockHullRepository SystemBlockRepository
+        public ISystemBlockHullRepository SystemBlockHullRepository
         { get; private set; }
 
-        public IGenericRepository<Int32, SystemBlockComponent> SystemBlockComponentRepository
+        public ISystemBlockRepository SystemBlockRepository
+        { get; private set; }
+
+        public ISystemBlockComponentRepository SystemBlockComponentRepository
         { get; private set; }
 
         public IEnergyProducerRepository EnergyProducerRepository
@@ -36,7 +39,8 @@ namespace DataAccess
             context = new ComputerSalonContext();
 
             TypeRepository = new TypeRepository(context);
-            SystemBlockRepository = new SystemBlockHullRepository(context);
+            SystemBlockHullRepository = new SystemBlockHullRepository(context);
+            SystemBlockRepository = new SystemBlockRepository(context);
             SystemBlockComponentRepository = new SystemBlockComponentRepository(context);
             EnergyProducerRepository = new EnergyProducerRepository(context);
             EnergyComponentRepository = new EnergyComponentRepository(context);

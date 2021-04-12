@@ -3,6 +3,8 @@ using System.Windows.Input;
 
 using MVVMModels;
 
+using Models;
+
 using ComputerSalonMVVM.Commands;
 
 namespace ComputerSalonMVVM.ViewModels
@@ -13,6 +15,7 @@ namespace ComputerSalonMVVM.ViewModels
         private ICommand checkCommand;
         private ICommand saveCommand;
         private ICommand exitCommand;
+        private SystemBlock systemBlock;
 
         public ICommand CheckCommand
         {
@@ -32,12 +35,23 @@ namespace ComputerSalonMVVM.ViewModels
         public SystemBlockComponents Components
         { get; set; }
 
+        public SystemBlock SystemBlock
+        {
+            get => systemBlock;
+            set
+            {
+                systemBlock = value;
+                OnPropertyChanged(nameof(SystemBlock));
+            }
+        }
+
         public SystemBlockViewModel()
         {
             Components = new SystemBlockComponents();
+            systemBlock = new SystemBlock();
 
-            checkCommand = new CheckSystemBlockCommand(Components);
-            saveCommand = new SaveSystemBlockCommand();
+            checkCommand = new CheckSystemBlockCommand(systemBlock, Components);
+            saveCommand = new SaveSystemBlockCommand(systemBlock);
             exitCommand = new ExitCommand();
         }
 

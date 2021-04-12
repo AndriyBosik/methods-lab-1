@@ -229,6 +229,7 @@
         "dependencies": {
           "Data": "1.0.0",
           "DataAccess": "1.0.0",
+          "Mappers": "1.0.0",
           "Models": "1.0.0"
         },
         "compile": {
@@ -261,6 +262,21 @@
         },
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Mappers/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Data": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Mappers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mappers.dll": {}
         }
       },
       "Models/1.0.0": {
@@ -751,6 +767,11 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Mappers/1.0.0": {
+      "type": "project",
+      "path": "../Mappers/Mappers.csproj",
+      "msbuildProject": "../Mappers/Mappers.csproj"
     },
     "Models/1.0.0": {
       "type": "project",

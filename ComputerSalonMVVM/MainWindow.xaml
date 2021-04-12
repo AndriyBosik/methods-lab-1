@@ -22,6 +22,7 @@
                 <Label DockPanel.Dock="Left">Type System Block's Title: </Label>
                 
                 <TextBox
+                    Text="{Binding SystemBlock.Title}"
                     DockPanel.Dock="Right"
                     VerticalContentAlignment="Center"
                     FontSize="13"/>
