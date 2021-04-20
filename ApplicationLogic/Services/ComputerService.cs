@@ -5,13 +5,15 @@ using System.Linq;
 using Models;
 using Models.Interfaces;
 
+using Mappers;
+
 using Data;
 
 using DataAccess;
-using DataAccess.Specifications;
 using DataAccess.Abstraction;
 
 using ApplicationLogic.Interfaces;
+using ApplicationLogic.Factories;
 
 namespace ApplicationLogic.Services
 {
@@ -26,94 +28,33 @@ namespace ApplicationLogic.Services
 
         public IList<Processor> GetProcessors()
         {
-            ComponentsMapper mapper = new ComponentsMapper();
-
-            IList<Processor> processors = GetComponents(ComponentType.Processor).Select(mapper.ProcessorMapper).ToList();
-
-            RetrieveNeededPower(processors);
-
-            return processors;
+            return this.GetComponents(ComponentType.Processor, new ProcessorMapper());
         }
 
         public IList<Motherboard> GetMotherboards()
         {
-            ComponentsMapper mapper = new ComponentsMapper();
-
-            IList<Motherboard> motherboards = GetComponents(ComponentType.Motherboard).Select(mapper.MotherboardMapper).ToList();
-
-            RetrieveNeededPower(motherboards);
-
-            return motherboards;
+            return this.GetComponents(ComponentType.Motherboard, new MotherboardMapper());
         }
 
         public IList<MemoryCard> GetMemoryCards()
         {
-            ComponentsMapper mapper = new ComponentsMapper();
-
-            IList<MemoryCard> memoryCards = GetComponents(ComponentType.MemoryCard).Select(mapper.MemoryCardMapper).ToList();
-
-            RetrieveNeededPower(memoryCards);
-
-            return memoryCards;
+            return this.GetComponents(ComponentType.MemoryCard, new MemoryCardMapper());
         }
 
         public IList<PowerSupply> GetPowerSuppliers()
         {
-            ComponentsMapper mapper = new ComponentsMapper();
-
-            IList<PowerSupply> powerSuppliers = GetComponents(ComponentType.PowerSupply).Select(mapper.PowerSupplyMapper).ToList();
-
-            RetrieveOtherPowerSuppliersData(powerSuppliers);
-
-            return powerSuppliers;
+            return this.GetComponents(ComponentType.PowerSupply, new PowerSupplyMapper());
         }
 
         public IList<Models.SystemBlockHull> GetSystemBlockHulls()
         {
-            ComponentsMapper mapper = new ComponentsMapper();
-
-            IList<Models.SystemBlockHull> systemBlockHulls = GetComponents(ComponentType.SystemBlockHull).Select(mapper.SystemBlockHullMapper).ToList();
-
-            RetrieveOtherSystemBlocksData(systemBlockHulls);
-
-            return systemBlockHulls;
+            return this.GetComponents(ComponentType.SystemBlockHull, new SystemBlockHullMapper());
 
         }
 
-        private void RetrieveOtherSystemBlocksData(IList<Models.SystemBlockHull> systemBlockHulls)
+        private IList<T> GetComponents<T>(ComponentType componentType, IComponentMapper<T> mapper) where T: SystemComponentBase
         {
-            foreach (Models.SystemBlockHull systemBlockHull in systemBlockHulls)
-            {
-                Data.SystemBlockHull systemBlock = unitOfWork.SystemBlockHullRepository.ReadByComponentId(systemBlockHull.Id);
-
-                systemBlockHull.AvailablePowerSupplySize = new Tuple<int, int, int>
-                    (systemBlock.Width, systemBlock.Height, systemBlock.Length);
-            }
-        }
-
-        private void RetrieveOtherPowerSuppliersData(IList<PowerSupply> powerSupplies)
-        {
-            foreach (PowerSupply powerSupply in powerSupplies)
-            {
-                EnergyProducer energyProducer = unitOfWork.EnergyProducerRepository.ReadByComponentId(powerSupply.Id);
-
-                powerSupply.Size = new Tuple<Int32, Int32, Int32>(energyProducer.Width, energyProducer.Height, energyProducer.Length);
-                powerSupply.Power = energyProducer.Power;
-            }
-        }
-
-        private void RetrieveNeededPower<T>(IList<T> components) where T : SystemComponentBase, IPowerConsumer
-        {
-            foreach (var component in components)
-            {
-                EnergyComponent energyComponent = unitOfWork.EnergyComponentRepository.ReadByComponentId(component.Id);
-                component.NeededPower = energyComponent.NeededEnergy;
-            }
-        }
-
-        private IEnumerable<Component> GetComponents(ComponentType componentType)
-        {
-            return unitOfWork.ComponentRepository.ReadAllByType((Int32) componentType);
+            return unitOfWork.ComponentRepository.ReadAllByType((Int32)componentType).Select(mapper.Map).ToList();
         }
     }
 }

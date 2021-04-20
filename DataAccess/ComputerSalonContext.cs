@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 using Data;
@@ -30,6 +30,29 @@ namespace DataAccess
 
         public DbSet<Component> Components
         { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SystemBlockComponent>()
+                .HasOne<SystemBlock>()
+                .WithMany(sb => sb.SystemBlockComponents)
+                .HasForeignKey(c => c.SystemBlockId);
+
+            modelBuilder.Entity<Component>()
+                .HasOne(c => c.EnergyComponent)
+                .WithOne()
+                .HasForeignKey<EnergyComponent>(ec => ec.ComponentId);
+
+            modelBuilder.Entity<Component>()
+                .HasOne(c => c.EnergyProducer)
+                .WithOne()
+                .HasForeignKey<EnergyProducer>(ep => ep.ComponentId);
+
+            modelBuilder.Entity<Component>()
+                .HasOne(c => c.SystemBlockHull)
+                .WithOne()
+                .HasForeignKey<SystemBlockHull>(sbh => sbh.ComponentId);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

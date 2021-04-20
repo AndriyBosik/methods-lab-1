@@ -1,6 +1,11 @@
-﻿using ApplicationLogic.Interfaces;
+﻿using System.Linq;
+using System.Collections.Generic;
+
+using ApplicationLogic.Interfaces;
 
 using Models;
+
+using Data;
 
 using DataAccess;
 
@@ -17,17 +22,12 @@ namespace ApplicationLogic.Services
             unitOfWork = new UnitOfWork();
         }
 
-        public int Save(SystemBlock systemBlock)
+        public void Save(Models.SystemBlock systemBlock)
         {
             IMapper<Data.SystemBlock, Models.SystemBlock> systemBlockMapper = new SystemBlockMapper();
 
-            Data.SystemBlock entitySystemBlock = systemBlockMapper.MapToEntity(systemBlock);
-
-            unitOfWork.SystemBlockRepository.Create(entitySystemBlock);
-
+            unitOfWork.SystemBlockRepository.Create(systemBlockMapper.MapToEntity(systemBlock));
             unitOfWork.Save();
-
-            return entitySystemBlock.Id;
         }
     }
 }

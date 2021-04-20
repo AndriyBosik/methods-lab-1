@@ -14,6 +14,6 @@ namespace DataAccess.Abstraction
 
         void Delete(K key);
 
-        IEnumerable<T> ReadAll();
+        IList<T> ReadAll();
     }
 }

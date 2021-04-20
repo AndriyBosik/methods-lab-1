@@ -34,9 +34,9 @@ namespace ComputerSalonMVVM.Commands
 
         public void Execute(object parameter)
         {
-            int id = service.Save(systemBlock);
+            service.Save(systemBlock);
 
-            MessageBox.Show(id + "", "Get your id");
+            MessageBox.Show("System block was successfully added to database", "Message");
         }
     }
 }

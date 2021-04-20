@@ -8,6 +8,9 @@ namespace DataAccess.Abstraction
 {
     public interface IUnitOfWork
     {
+        public ITypeRepository TypeRepository
+        { get; }
+
         public ISystemBlockHullRepository SystemBlockHullRepository
         { get; }
 

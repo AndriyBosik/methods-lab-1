@@ -13,7 +13,7 @@ namespace DataAccess
     {
         private readonly ComputerSalonContext context;
 
-        public IGenericRepository<Int32, Data.Type> TypeRepository
+        public ITypeRepository TypeRepository
         { get; private set; }
 
         public ISystemBlockHullRepository SystemBlockHullRepository

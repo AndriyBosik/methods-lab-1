@@ -1,0 +1,6 @@
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\ComputerSalonMVVM.csprojAssemblyReference.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\MainWindow.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\App.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\ComputerSalonMVVM_MarkupCompile.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Release\netcoreapp3.1\ComputerSalonMVVM_MarkupCompile.lref

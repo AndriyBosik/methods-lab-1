@@ -61,7 +61,7 @@ namespace ApplicationLogic.Handlers
         {
             return components[componentType].GetItems();
         }
-
+        
         private IList<IPowerConsumer> GetConsumersFromContainer(IContainer container)
         {
             var items = container.GetItems();

@@ -7,6 +7,6 @@ namespace DataAccess.Abstraction
 {
     public interface IComponentRepository: IGenericRepository<Int32, Component>
     {
-        IEnumerable<Component> ReadAllByType(int type);
+        IList<Component> ReadAllByType(int type);
     }
 }

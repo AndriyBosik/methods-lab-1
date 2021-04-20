@@ -1,6 +1,7 @@
 ﻿using DataAccess.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccess.Repositories
 {
@@ -31,9 +32,9 @@ namespace DataAccess.Repositories
             return table.Find(key);
         }
 
-        public IEnumerable<T> ReadAll()
+        public IList<T> ReadAll()
         {
-            return table;
+            return table.ToList();
         }
 
         public void Update(T entity)

@@ -15,5 +15,8 @@ namespace Data
         [Column("title")]
         public String Title
         { get; set; }
+
+        public virtual ICollection<SystemBlockComponent> SystemBlockComponents
+        { get; set; } = new List<SystemBlockComponent>();
     }
 }

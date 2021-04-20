@@ -16,7 +16,7 @@ namespace Data
         public Int32 ComponentId
         { get; set; }
 
-        [ForeignKey(nameof(SystemBlockHull))]
+        [ForeignKey(nameof(SystemBlock))]
         [Column("system_block_id")]
         public Int32 SystemBlockId
         { get; set; }

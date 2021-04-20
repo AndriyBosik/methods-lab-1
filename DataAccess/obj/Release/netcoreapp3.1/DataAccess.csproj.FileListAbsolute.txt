@@ -1,0 +1,4 @@
+D:\Study\II Course(II term)\Methods\Labs\Lab1\DataAccess\obj\Release\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\DataAccess\obj\Release\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\DataAccess\obj\Release\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\DataAccess\obj\Release\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache

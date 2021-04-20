@@ -6,6 +6,7 @@ using MVVMModels;
 using Models;
 
 using ComputerSalonMVVM.Commands;
+using System.Windows;
 
 namespace ComputerSalonMVVM.ViewModels
 {
@@ -48,6 +49,7 @@ namespace ComputerSalonMVVM.ViewModels
         public SystemBlockViewModel()
         {
             Components = new SystemBlockComponents();
+
             systemBlock = new SystemBlock();
 
             checkCommand = new CheckSystemBlockCommand(systemBlock, Components);

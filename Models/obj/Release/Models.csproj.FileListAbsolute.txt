@@ -1,0 +1,6 @@
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\bin\Release\Models.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\bin\Release\Models.pdb
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\obj\Release\Models.csprojAssemblyReference.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\obj\Release\Models.csproj.CoreCompileInputs.cache
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\obj\Release\Models.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\Models\obj\Release\Models.pdb

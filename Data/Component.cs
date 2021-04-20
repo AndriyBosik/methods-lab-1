@@ -22,5 +22,14 @@ namespace Data
         [Column("group")]
         public Int32 Group
         { get; set; }
+
+        public EnergyComponent? EnergyComponent
+        { get; set; }
+
+        public EnergyProducer? EnergyProducer
+        { get; set; }
+
+        public SystemBlockHull? SystemBlockHull
+        { get; set; }
     }
 }

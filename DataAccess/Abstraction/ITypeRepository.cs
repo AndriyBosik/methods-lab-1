@@ -4,8 +4,7 @@ using System.Text;
 
 namespace DataAccess.Abstraction
 {
-    public interface ISpecification<T>
+    public interface ITypeRepository: IGenericRepository<Int32, Data.Type>
     {
-        Boolean IsSatisfiedBy(T entity);
     }
 }
