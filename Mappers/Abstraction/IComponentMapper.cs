@@ -6,7 +6,7 @@ using Data;
 
 using Models;
 
-namespace Mappers
+namespace Mappers.Abstraction
 {
     public interface IComponentMapper<T> where T: SystemComponentBase
     {

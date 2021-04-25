@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mappers
+namespace Mappers.Abstraction
 {
     public interface IMapper<TEntity, TModel>
     {

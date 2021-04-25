@@ -14,13 +14,12 @@ namespace DataAccess.Repositories
     {
         public ComponentRepository(ComputerSalonContext context): base(context) {}
 
-        public IList<Component> ReadAllByType(int type)
+        public IList<Component> ReadAllByType(Int32 type)
         {
             return context.Components
-                .Include(component => component.SystemBlockHull)
-                .Include(component => component.EnergyComponent)
-                .Include(component => component.EnergyProducer)
-                .Where(component => component.Group == type)
+                .Include(component => component.Values)
+                    .ThenInclude(value => value.Attribute)
+                .Where(component => component.TypeId == type)
                 .ToList();
         }
     }

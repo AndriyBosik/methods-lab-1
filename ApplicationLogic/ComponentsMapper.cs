@@ -50,7 +50,7 @@ namespace ApplicationLogic
             model.Id = component.Id;
             model.Title = component.Title;
             model.Price = component.Price;
-            model.Type = (ComponentType)component.Group;
+            model.Type = (ComponentType)component.TypeId;
             return model;
         }
     }

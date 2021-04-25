@@ -7,8 +7,8 @@ namespace Data
     public class Type
     {
         [Key]
-        [Column("group")]
-        public Int32 Group
+        [Column("id")]
+        public Int32 Id
         { get; set; }
 
         [Column("is_multiply")]

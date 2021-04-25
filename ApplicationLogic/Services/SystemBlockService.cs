@@ -1,15 +1,9 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-
-using ApplicationLogic.Interfaces;
-
-using Models;
-
-using Data;
+﻿using ApplicationLogic.Interfaces;
 
 using DataAccess;
 
 using Mappers;
+using Mappers.Abstraction;
 
 namespace ApplicationLogic.Services
 {

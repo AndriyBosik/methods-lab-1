@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Models;
-using Models.Interfaces;
 
 using Mappers;
-
-using Data;
+using Mappers.Abstraction;
 
 using DataAccess;
 using DataAccess.Abstraction;
 
 using ApplicationLogic.Interfaces;
-using ApplicationLogic.Factories;
 
 namespace ApplicationLogic.Services
 {

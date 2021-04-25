@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 using Models;
+
+using Mappers.Abstraction;
+using Mappers.Parsers;
 
 using Data;
 
@@ -10,6 +12,13 @@ namespace Mappers
 {
     public class PowerSupplyMapper: IComponentMapper<PowerSupply>
     {
+        private ValueParser<Int32> parser;
+
+        public PowerSupplyMapper()
+        {
+            parser = new IntParser();
+        }
+
         public PowerSupply Map(Component component)
         {
             PowerSupply powerSupply = new PowerSupply
@@ -19,11 +28,15 @@ namespace Mappers
                 Title = component.Title,
                 Price = component.Price
             };
-            if (component.EnergyProducer != null)
-            {
-                powerSupply.Size = new Tuple<Int32, Int32, Int32>(component.EnergyProducer.Width, component.EnergyProducer.Height, component.EnergyProducer.Length);
-                powerSupply.Power = component.EnergyProducer.Power;
-            }
+            
+            powerSupply.Power = parser.Parse(component.Values, "power");
+
+            Int32 width = parser.Parse(component.Values, "width");
+            Int32 height = parser.Parse(component.Values, "height");
+            Int32 length = parser.Parse(component.Values, "length");
+
+            powerSupply.Size = new Tuple<Int32, Int32, Int32>(width, height, length);
+
             return powerSupply;
         }
     }

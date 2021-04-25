@@ -2,6 +2,8 @@
 
 using Models;
 
+using Mappers.Abstraction;
+
 namespace Mappers
 {
     class SystemBlockComponentMapper : IMapper<SystemBlockComponent, SystemComponentBase>

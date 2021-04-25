@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ApplicationLogic.Interfaces;
 
-using ApplicationLogic.Interfaces;
 using Mappers;
+using Mappers.Abstraction;
+
 using Models;
 
 namespace ApplicationLogic.Factories

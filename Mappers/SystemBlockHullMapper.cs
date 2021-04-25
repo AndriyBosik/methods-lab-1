@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 using Data;
+
+using Mappers.Abstraction;
+using Mappers.Parsers;
 
 using Models;
 
@@ -10,6 +12,13 @@ namespace Mappers
 {
     public class SystemBlockHullMapper: IComponentMapper<Models.SystemBlockHull>
     {
+        private ValueParser<Int32> parser;
+
+        public SystemBlockHullMapper()
+        {
+            parser = new IntParser();
+        }
+
         public Models.SystemBlockHull Map(Component component)
         {
             Models.SystemBlockHull systemBlockHull = new Models.SystemBlockHull
@@ -19,12 +28,12 @@ namespace Mappers
                 Title = component.Title,
                 Price = component.Price
             };
-            if (component.SystemBlockHull != null)
-                systemBlockHull.AvailablePowerSupplySize = new Tuple<Int32, Int32, Int32>(
-                    component.SystemBlockHull.Width,
-                    component.SystemBlockHull.Height,
-                    component.SystemBlockHull.Length
-                );
+
+            Int32 width = parser.Parse(component.Values, "width");
+            Int32 height = parser.Parse(component.Values, "height");
+            Int32 length = parser.Parse(component.Values, "length");
+
+            systemBlockHull.AvailablePowerSupplySize = new Tuple<Int32, Int32, Int32>(width, height, length);
 
             return systemBlockHull;
         }

@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 using Data;
+
+using Mappers.Abstraction;
+using Mappers.Parsers;
 
 using Models;
 
@@ -10,6 +12,13 @@ namespace Mappers
 {
     public class MemoryCardMapper: IComponentMapper<MemoryCard>
     {
+        private ValueParser<Int32> parser;
+
+        public MemoryCardMapper()
+        {
+            parser = new IntParser();
+        }
+
         public MemoryCard Map(Component component)
         {
             MemoryCard memoryCard = new MemoryCard
@@ -19,9 +28,8 @@ namespace Mappers
                 Title = component.Title,
                 Price = component.Price
             };
-            
-            if (component.EnergyComponent != null)
-                memoryCard.NeededPower = component.EnergyComponent.NeededEnergy;
+
+            memoryCard.NeededPower = parser.Parse(component.Values, "needed_power");
 
             return memoryCard;
         }

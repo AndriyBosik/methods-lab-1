@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Models;
 
-using Models;
-
-using Mappers;
+using Mappers.Abstraction;
 
 namespace ApplicationLogic.Interfaces
 {

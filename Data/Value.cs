@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data
 {
-    public class EnergyProducer
+    public class Value
     {
         [Key]
         [Column("id")]
@@ -16,20 +16,16 @@ namespace Data
         public Int32 ComponentId
         { get; set; }
 
-        [Column("width")]
-        public Int32 Width
+        [ForeignKey("Attribute")]
+        [Column("attribute_id")]
+        public Int32 AttributeId
         { get; set; }
 
-        [Column("height")]
-        public Int32 Height
+        [Column("data")]
+        public String Data
         { get; set; }
 
-        [Column("length")]
-        public Int32 Length
-        { get; set; }
-
-        [Column("power")]
-        public Int32 Power
+        public virtual Attribute Attribute
         { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,17 +20,11 @@ namespace Data
         public Double Price
         { get; set; }
 
-        [Column("group")]
-        public Int32 Group
+        [Column("type_id")]
+        public Int32 TypeId
         { get; set; }
 
-        public EnergyComponent? EnergyComponent
-        { get; set; }
-
-        public EnergyProducer? EnergyProducer
-        { get; set; }
-
-        public SystemBlockHull? SystemBlockHull
-        { get; set; }
+        public virtual ICollection<Value> Values
+        { get; set; } = new List<Value>();
     }
 }
