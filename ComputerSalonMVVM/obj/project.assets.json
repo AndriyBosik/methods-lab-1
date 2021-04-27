@@ -1248,7 +1248,9 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ApplicationLogic >= 1.0.0",
+      "DataAccess >= 1.0.0",
       "MVVMModels >= 1.0.0",
+      "Microsoft.Extensions.DependencyInjection >= 5.0.1",
       "Models >= 1.0.0"
     ]
   },
@@ -1282,6 +1284,9 @@
             "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\ApplicationLogic\\ApplicationLogic.csproj": {
               "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\ApplicationLogic\\ApplicationLogic.csproj"
             },
+            "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\DataAccess\\DataAccess.csproj"
+            },
             "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Models\\Models.csproj": {
               "projectPath": "D:\\Study\\II Course(II term)\\Methods\\Labs\\Lab1\\Models\\Models.csproj"
             },
@@ -1300,6 +1305,12 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[5.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

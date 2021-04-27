@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using ComputerSalonMVVM.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using ComputerSalonMVVM.ViewModels;
-using Models;
-
-using ComputerSalonMVVM.Commands;
 
 namespace ComputerSalonMVVM
 {
@@ -15,9 +8,11 @@ namespace ComputerSalonMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(SystemBlockViewModel vm)
         {
             InitializeComponent();
+
+            DataContext = vm;
         }
     }
 }

@@ -20,9 +20,9 @@ namespace ComputerSalonMVVM.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public SaveSystemBlockCommand(SystemBlock systemBlock)
+        public SaveSystemBlockCommand(SystemBlock systemBlock, ISystemBlockService service)
         {
-            this.service = new SystemBlockService();
+            this.service = service;
 
             this.systemBlock = systemBlock;
         }

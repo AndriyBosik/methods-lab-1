@@ -9,7 +9,9 @@
       "ComputerSalonMVVM/1.0.0": {
         "dependencies": {
           "ApplicationLogic": "1.0.0",
+          "DataAccess": "1.0.0",
           "MVVMModels": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
           "Models": "1.0.0"
         },
         "runtime": {

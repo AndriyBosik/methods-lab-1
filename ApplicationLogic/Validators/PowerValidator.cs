@@ -15,7 +15,7 @@ namespace ApplicationLogic.Validators
 
         public bool Validate(ISystemBlockHandler systemBlock)
         {
-            var powerSupply = (PowerSupply)systemBlock.GetComponents(ComponentType.PowerSupply).FirstOrDefault();
+            var powerSupply = (PowerSupply)systemBlock.GetContainer(ComponentType.PowerSupply).GetItems().FirstOrDefault();
 
             var consumers = systemBlock.GetPowerConsumers();
 

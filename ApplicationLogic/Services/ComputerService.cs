@@ -18,9 +18,9 @@ namespace ApplicationLogic.Services
     {
         private IUnitOfWork unitOfWork;
 
-        public ComputerService()
+        public ComputerService(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         public IList<Processor> GetProcessors()

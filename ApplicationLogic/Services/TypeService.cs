@@ -7,17 +7,17 @@ using DataAccess.Abstraction;
 
 using Models;
 
-using ApplicationLogic.Handlers;
+using ApplicationLogic.Interfaces;
 
 namespace ApplicationLogic.Services
 {
-    public class TypeService
+    public class TypeService: ITypeService
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public TypeService()
+        public TypeService(IUnitOfWork unitOfWork)
         {
-            unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         public bool IsMultiply(ComponentType componentType)

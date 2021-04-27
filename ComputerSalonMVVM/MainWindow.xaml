@@ -8,9 +8,9 @@
         xmlns:local="clr-namespace:ComputerSalonMVVM"
         mc:Ignorable="d"
         Title="Collect your own System Block!" Height="540" Width="800">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:SystemBlockViewModel />
-    </Window.DataContext>
+    </Window.DataContext>-->
     <StackPanel
         Orientation="Vertical">
         <WrapPanel

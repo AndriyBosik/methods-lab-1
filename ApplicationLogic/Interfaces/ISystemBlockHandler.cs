@@ -16,12 +16,12 @@ namespace ApplicationLogic.Interfaces
 
         void AddComponent(SystemComponentBase component);
 
-        bool CanAddOneMore(SystemComponentBase component);
-
         bool IsWorking();
+
+        void Clear();
 
         IList<IPowerConsumer> GetPowerConsumers();
 
-        IList<SystemComponentBase> GetComponents(ComponentType componentType);
+        IContainer GetContainer(ComponentType componentType);
     }
 }

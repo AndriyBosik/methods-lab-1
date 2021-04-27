@@ -1,6 +1,6 @@
 ﻿using ApplicationLogic.Interfaces;
 
-using DataAccess;
+using DataAccess.Abstraction;
 
 using Mappers;
 using Mappers.Abstraction;
@@ -9,11 +9,11 @@ namespace ApplicationLogic.Services
 {
     public class SystemBlockService : ISystemBlockService
     {
-        private UnitOfWork unitOfWork;
+        private IUnitOfWork unitOfWork;
 
-        public SystemBlockService()
+        public SystemBlockService(IUnitOfWork unitOfWork)
         {
-            unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         public void Save(Models.SystemBlock systemBlock)

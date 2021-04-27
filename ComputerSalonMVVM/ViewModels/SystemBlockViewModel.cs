@@ -6,17 +6,18 @@ using MVVMModels;
 using Models;
 
 using ComputerSalonMVVM.Commands;
-using System.Windows;
+using ApplicationLogic.Interfaces;
 
 namespace ComputerSalonMVVM.ViewModels
 {
     public class SystemBlockViewModel: INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private ICommand checkCommand;
         private ICommand saveCommand;
         private ICommand exitCommand;
         private SystemBlock systemBlock;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand CheckCommand
         {
@@ -46,14 +47,14 @@ namespace ComputerSalonMVVM.ViewModels
             }
         }
 
-        public SystemBlockViewModel()
+        public SystemBlockViewModel(SystemBlockComponents components, ISystemBlockHandler handler, ISystemBlockService service)
         {
-            Components = new SystemBlockComponents();
+            Components = components;
 
             systemBlock = new SystemBlock();
 
-            checkCommand = new CheckSystemBlockCommand(systemBlock, Components);
-            saveCommand = new SaveSystemBlockCommand(systemBlock);
+            checkCommand = new CheckSystemBlockCommand(systemBlock, Components, handler);
+            saveCommand = new SaveSystemBlockCommand(systemBlock, service);
             exitCommand = new ExitCommand();
         }
 

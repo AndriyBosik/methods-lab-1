@@ -11,20 +11,25 @@ using ApplicationLogic.Validators;
 
 using Models;
 using Models.Interfaces;
+using ApplicationLogic.Services;
+using ApplicationLogic.Containers;
 
 namespace ApplicationLogic.Handlers
 {
     public class SystemBlockHandler: ISystemBlockHandler
     {
         private IDictionary<ComponentType, IContainer> components;
+        private readonly ITypeService typeService;
 
         public Double Price
         { get; private set; }
 
-        public SystemBlockHandler()
+        public SystemBlockHandler(ITypeService typeService)
         {
+            this.typeService = typeService;
+
             components = new Dictionary<ComponentType, IContainer>();
-            InitDictionary();
+            Clear();
         }
 
         public void AddComponent(SystemComponentBase component)
@@ -34,19 +39,14 @@ namespace ApplicationLogic.Handlers
             components[component.Type].AddComponent(component);
         }
 
-        public bool CanAddOneMore(SystemComponentBase component)
-        {
-            return components[component.Type].CanAddOneMoreComponent();
-        }
-
         public bool IsWorking()
         {
-            IValidator countValidator = new CountValidator();
+            IValidator containerValidator = new ContainerValidator();
             IValidator sizeValidator = new SizeValidator();
             IValidator powerValidator = new PowerValidator();
-            countValidator.Next = sizeValidator;
+            containerValidator.Next = sizeValidator;
             sizeValidator.Next = powerValidator;
-            return countValidator.Validate(this);
+            return containerValidator.Validate(this);
         }
 
         public IList<IPowerConsumer> GetPowerConsumers()
@@ -57,9 +57,9 @@ namespace ApplicationLogic.Handlers
             return consumers;
         }
 
-        public IList<SystemComponentBase> GetComponents(ComponentType componentType)
+        public IContainer GetContainer(ComponentType componentType)
         {
-            return components[componentType].GetItems();
+            return components[componentType];
         }
         
         private IList<IPowerConsumer> GetConsumersFromContainer(IContainer container)
@@ -74,10 +74,15 @@ namespace ApplicationLogic.Handlers
             return consumers;
         }
 
-        private void InitDictionary()
+        public void Clear()
         {
+            this.Price = 0;
+
             foreach (ComponentType componentType in Enum.GetValues(typeof(ComponentType)))
-                components.Add(componentType, ContainerFactory.GetContainer(componentType));
+                if (components.ContainsKey(componentType))
+                    components[componentType] = new ComponentsContainer(componentType, typeService);
+                else
+                    components.Add(componentType, new ComponentsContainer(componentType, typeService));
         }
     }
 }

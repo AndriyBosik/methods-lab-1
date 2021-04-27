@@ -29,10 +29,8 @@ namespace MVVMModels
             }
         }
 
-        public SystemBlockComponents()
+        public SystemBlockComponents(IComputerService service)
         {
-            IComputerService service = new ComputerService();
-
             Components = new Dictionary<ComponentType, ObservableCollection<SystemComponentBase>>();
 
             Components[ComponentType.MemoryCard] = new ObservableCollection<SystemComponentBase>(service.GetMemoryCards().Cast<SystemComponentBase>().ToList());

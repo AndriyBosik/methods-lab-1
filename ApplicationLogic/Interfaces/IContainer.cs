@@ -10,12 +10,9 @@ namespace ApplicationLogic.Interfaces
 {
     public interface IContainer
     {
-        Boolean IsMultiply
-        { get; }
-
         void AddComponent(SystemComponentBase systemComponent);
 
-        bool CanAddOneMoreComponent();
+        Boolean IsValid();
 
         IList<SystemComponentBase> GetItems();
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
 {
-    class ComputerSalonContext : DbContext
+    public class ComputerSalonContext : DbContext
     {
         public DbSet<Attribute> Attributes
         { get; set; }

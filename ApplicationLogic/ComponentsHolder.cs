@@ -29,10 +29,8 @@ namespace ApplicationLogic
 
         
 
-        public ComponentsHolder()
+        public ComponentsHolder(IComputerService service)
         {
-            IComputerService service = new ComputerService();
-
             MemoryCards = service.GetMemoryCards();
             Motherboards = service.GetMotherboards();
             PowerSuppliers = service.GetPowerSuppliers();

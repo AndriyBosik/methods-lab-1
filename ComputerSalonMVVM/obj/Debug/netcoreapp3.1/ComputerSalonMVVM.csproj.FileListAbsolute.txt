@@ -43,7 +43,6 @@ D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcor
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\ComputerSalonMVVM.dll
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\ComputerSalonMVVM.pdb
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\ComputerSalonMVVM.genruntimeconfig.cache
-D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\MVVMModels.dll
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\MVVMModels.pdb
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\Mappers.dll

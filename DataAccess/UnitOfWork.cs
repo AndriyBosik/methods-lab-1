@@ -25,9 +25,9 @@ namespace DataAccess
         public IValueRepository ValueRepository
         { get; private set; }
 
-        public UnitOfWork()
+        public UnitOfWork(ComputerSalonContext context)
         {
-            context = new ComputerSalonContext();
+            this.context = context;
 
             AttributeRepository = new AttributeRepository(context);
             TypeRepository = new TypeRepository(context);

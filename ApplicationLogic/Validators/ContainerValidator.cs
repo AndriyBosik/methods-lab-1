@@ -7,7 +7,7 @@ using Models;
 
 namespace ApplicationLogic.Validators
 {
-    class CountValidator : IValidator
+    class ContainerValidator : IValidator
     {
         public IValidator Next
         { get; set; }
@@ -16,7 +16,7 @@ namespace ApplicationLogic.Validators
         {
             foreach (ComponentType componentType in Enum.GetValues(typeof(ComponentType)))
             {
-                if (systemBlock.GetComponents(componentType).Count < 1)
+                if (!systemBlock.GetContainer(componentType).IsValid())
                     return false;
             }
             return Next == null ? true : Next.Validate(systemBlock);
