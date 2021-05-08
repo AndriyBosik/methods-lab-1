@@ -1,6 +1,8 @@
 ﻿using ComputerSalonMVVM.ViewModels;
 using System.Windows;
 
+using ComputerSalonMVVM.Pages;
+
 namespace ComputerSalonMVVM
 {
     /// <summary>
@@ -8,11 +10,14 @@ namespace ComputerSalonMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(SystemBlockViewModel vm)
+        public MainWindow()
         {
             InitializeComponent();
+        }
 
-            DataContext = vm;
+        private void FrameLoaded(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Navigation.NavigateTo(PageType.HomePage);
         }
     }
 }

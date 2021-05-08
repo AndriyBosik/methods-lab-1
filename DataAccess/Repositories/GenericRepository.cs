@@ -39,8 +39,8 @@ namespace DataAccess.Repositories
 
         public void Update(T entity)
         {
-            table.Attach(entity);
             this.context.Entry(entity).State = EntityState.Modified;
+            this.context.SaveChanges();
         }
     }
 }

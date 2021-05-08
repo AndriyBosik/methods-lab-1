@@ -8,6 +8,8 @@ namespace ApplicationLogic.Interfaces
 {
     public interface ISystemBlockService
     {
-        void Save(SystemBlock systemBlock);
+        public void Save(SystemBlock systemBlock);
+
+        public IList<SystemBlock> GetSystemBlocks();
     }
 }

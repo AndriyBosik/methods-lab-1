@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSalonMVVM", "..\Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMModels", "..\MVVMModels\MVVMModels.csproj", "{4B3EAFC8-26B7-425F-8F04-B04102247A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mappers", "..\Mappers\Mappers.csproj", "{FBBABBBC-2AFF-4AAC-A941-2E4941440554}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mappers", "..\Mappers\Mappers.csproj", "{FBBABBBC-2AFF-4AAC-A941-2E4941440554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

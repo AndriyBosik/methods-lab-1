@@ -1,66 +1,54 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
-
-using MVVMModels;
-
-using Models;
-
+﻿using ApplicationLogic.Interfaces;
+using ComputerSalonMVVM.Abstraction;
 using ComputerSalonMVVM.Commands;
-using ApplicationLogic.Interfaces;
+using Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Input;
 
 namespace ComputerSalonMVVM.ViewModels
 {
-    public class SystemBlockViewModel: INotifyPropertyChanged
+    class SystemBlockViewModel: ViewModelBase
     {
-        private ICommand checkCommand;
+        private object parameter;
+        private ICommand goBackCommand;
         private ICommand saveCommand;
-        private ICommand exitCommand;
-        private SystemBlock systemBlock;
+        private ISystemBlockService service;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public ICommand CheckCommand
+        public override object Parameter
         {
-            get => checkCommand;
+            get => parameter;
+            set
+            {
+                parameter = value;
+                OnPropertyChanged(nameof(Parameter));
+                SaveCommand = new SaveSystemBlockCommand(value as SystemBlock, service);
+            }
+        }
+
+        public ICommand GoBackCommand
+        {
+            get => goBackCommand;
         }
 
         public ICommand SaveCommand
         {
             get => saveCommand;
-        }
-
-        public ICommand ExitCommand
-        {
-            get => exitCommand;
-        }
-
-        public SystemBlockComponents Components
-        { get; set; }
-
-        public SystemBlock SystemBlock
-        {
-            get => systemBlock;
             set
             {
-                systemBlock = value;
-                OnPropertyChanged(nameof(SystemBlock));
+                saveCommand = value;
+                OnPropertyChanged(nameof(SaveCommand));
             }
         }
 
-        public SystemBlockViewModel(SystemBlockComponents components, ISystemBlockHandler handler, ISystemBlockService service)
+        public SystemBlockViewModel(INavigationService navigation, ISystemBlockService service)
         {
-            Components = components;
+            goBackCommand = new GoBackCommand(navigation);
 
-            systemBlock = new SystemBlock();
-
-            checkCommand = new CheckSystemBlockCommand(systemBlock, Components, handler);
-            saveCommand = new SaveSystemBlockCommand(systemBlock, service);
-            exitCommand = new ExitCommand();
+            this.service = service;
         }
 
-        protected virtual void OnPropertyChanged(string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

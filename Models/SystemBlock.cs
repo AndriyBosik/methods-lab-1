@@ -13,6 +13,11 @@ namespace Models
 
         private string title;
 
+        public Double Price
+        {
+            get => Components.Sum(component => component.Price);
+        }
+
         public String Title
         {
             get => title;
@@ -20,7 +25,7 @@ namespace Models
             {
                 title = value;
                 OnPropertyChanged(nameof(Title));
-    }
+            }
         }
 
         public IList<SystemComponentBase> Components

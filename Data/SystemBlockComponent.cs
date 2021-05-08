@@ -20,5 +20,8 @@ namespace Data
         [Column("system_block_id")]
         public Int32 SystemBlockId
         { get; set; }
+
+        public virtual Component Component
+        { get; set; }
     }
 }

@@ -1,15 +1,23 @@
-﻿using System;
+﻿using ComputerSalonMVVM.Abstraction;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
 namespace ComputerSalonMVVM.Commands
 {
-    public class ExitCommand : ICommand
+    class GoBackCommand : ICommand
     {
+        private INavigationService navigation;
+
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public GoBackCommand(INavigationService navigation)
+        {
+            this.navigation = navigation;
         }
 
         public bool CanExecute(object parameter)
@@ -19,7 +27,7 @@ namespace ComputerSalonMVVM.Commands
 
         public void Execute(object parameter)
         {
-            (parameter as Window).Close();
+            navigation.GoBack();
         }
     }
 }

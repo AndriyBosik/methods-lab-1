@@ -24,26 +24,27 @@ namespace DataAccess
         public DbSet<Value> Values
         { get; set; }
 
+        public ComputerSalonContext(DbContextOptions<ComputerSalonContext> options): base(options) {}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SystemBlockComponent>()
-                .HasOne<SystemBlock>()
-                .WithMany(sb => sb.SystemBlockComponents)
-                .HasForeignKey(c => c.SystemBlockId);
+            modelBuilder.Entity<SystemBlock>()
+                .HasMany(systemBlock => systemBlock.SystemBlockComponents)
+                .WithOne();
 
             modelBuilder.Entity<Value>()
                 .HasOne(value => value.Attribute)
                 .WithMany()
                 .HasForeignKey(Value => Value.AttributeId);
 
+            modelBuilder.Entity<SystemBlockComponent>()
+                .HasOne(systemBlockComponent => systemBlockComponent.Component)
+                .WithMany()
+                .HasForeignKey(systemBlockComponent => systemBlockComponent.ComponentId);
+
             modelBuilder.Entity<Component>()
                 .HasMany(component => component.Values)
                 .WithOne();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ComputerSalonEAV;Username=postgres;Password=postgres");
         }
     }
 

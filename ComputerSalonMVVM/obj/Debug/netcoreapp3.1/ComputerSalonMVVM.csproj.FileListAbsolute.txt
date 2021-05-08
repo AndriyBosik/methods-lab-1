@@ -63,3 +63,14 @@ D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcor
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\HomePage.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\HomePage.baml
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Resources\Resources.baml
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\CollectSystemBlockPage.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\App.baml
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\CollectSystemBlockPage.baml
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\ViewCollectedPage.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\ViewCollectedPage.baml
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\SaveSystemBlockPage.g.cs
+D:\Study\II Course(II term)\Methods\Labs\Lab1\ComputerSalonMVVM\obj\Debug\netcoreapp3.1\Pages\SaveSystemBlockPage.baml

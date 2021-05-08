@@ -7,16 +7,20 @@ using MVVMModels;
 
 using Models;
 
-using ApplicationLogic.Handlers;
 using ApplicationLogic.Interfaces;
+
+using ComputerSalonMVVM.Abstraction;
+using ComputerSalonMVVM.Pages;
+using System.Windows;
 
 namespace ComputerSalonMVVM.Commands
 {
-    public class CheckSystemBlockCommand : ICommand
+    class CheckSystemBlockCommand : ICommand
     {
         private SystemBlockComponents components;
         private SystemBlock systemBlock;
         private ISystemBlockHandler handler;
+        private INavigationService navigation;
 
         public event EventHandler CanExecuteChanged
         {
@@ -24,11 +28,12 @@ namespace ComputerSalonMVVM.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public CheckSystemBlockCommand(SystemBlock systemBlock, SystemBlockComponents components, ISystemBlockHandler handler)
+        public CheckSystemBlockCommand(SystemBlock systemBlock, SystemBlockComponents components, ISystemBlockHandler handler, INavigationService navigation)
         {
             this.handler = handler;
             this.systemBlock = systemBlock;
             this.components = components;
+            this.navigation = navigation;
         }
 
         public bool CanExecute(object parameter)
@@ -49,14 +54,16 @@ namespace ComputerSalonMVVM.Commands
             foreach (SystemComponentBase component in selectedComponents)
                 handler.AddComponent(component);
 
-            if (handler.IsWorking())
+            if (handler.IsWorking() && !String.IsNullOrEmpty(systemBlock.Title))
             {
-                components.Status = $"System Block can be collected. The price is {handler.Price} $";
                 foreach (SystemComponentBase component in selectedComponents)
                     systemBlock.Components.Add(component);
+                navigation.NavigateTo(PageType.SaveSystemBlockPage, systemBlock);
             }
             else
+            {
                 components.Status = "System Block can not be collected";
+            }
         }
     }
 }
