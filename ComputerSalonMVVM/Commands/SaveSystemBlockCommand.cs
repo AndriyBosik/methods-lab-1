@@ -35,6 +35,7 @@ namespace ComputerSalonMVVM.Commands
         public void Execute(object parameter)
         {
             service.Save(systemBlock);
+            systemBlock = null;
 
             MessageBox.Show("System block was successfully added to database", "Message");
         }
