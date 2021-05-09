@@ -11,6 +11,7 @@ using DataAccess;
 using DataAccess.Abstraction;
 
 using ApplicationLogic.Interfaces;
+using System.Threading.Tasks;
 
 namespace ApplicationLogic.Services
 {
@@ -23,35 +24,35 @@ namespace ApplicationLogic.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public IList<Processor> GetProcessors()
+        public async Task<IList<Processor>> GetProcessors()
         {
-            return this.GetComponents(ComponentType.Processor, new ProcessorMapper());
+            return await this.GetComponents(ComponentType.Processor, new ProcessorMapper());
         }
 
-        public IList<Motherboard> GetMotherboards()
+        public async Task<IList<Motherboard>> GetMotherboards()
         {
-            return this.GetComponents(ComponentType.Motherboard, new MotherboardMapper());
+            return await this.GetComponents(ComponentType.Motherboard, new MotherboardMapper());
         }
 
-        public IList<MemoryCard> GetMemoryCards()
+        public async Task<IList<MemoryCard>> GetMemoryCards()
         {
-            return this.GetComponents(ComponentType.MemoryCard, new MemoryCardMapper());
+            return await this.GetComponents(ComponentType.MemoryCard, new MemoryCardMapper());
         }
 
-        public IList<PowerSupply> GetPowerSuppliers()
+        public async Task<IList<PowerSupply>> GetPowerSuppliers()
         {
-            return this.GetComponents(ComponentType.PowerSupply, new PowerSupplyMapper());
+            return await this.GetComponents(ComponentType.PowerSupply, new PowerSupplyMapper());
         }
 
-        public IList<Models.SystemBlockHull> GetSystemBlockHulls()
+        public async Task<IList<Models.SystemBlockHull>> GetSystemBlockHulls()
         {
-            return this.GetComponents(ComponentType.SystemBlockHull, new SystemBlockHullMapper());
+            return await this.GetComponents(ComponentType.SystemBlockHull, new SystemBlockHullMapper());
 
         }
 
-        private IList<T> GetComponents<T>(ComponentType componentType, IComponentMapper<T> mapper) where T: SystemComponentBase
+        private async Task<IList<T>> GetComponents<T>(ComponentType componentType, IComponentMapper<T> mapper) where T: SystemComponentBase
         {
-            return unitOfWork.ComponentRepository.ReadAllByType((Int32)componentType).Select(mapper.Map).ToList();
+            return (await unitOfWork.ComponentRepository.ReadAllByType((Int32)componentType)).Select(mapper.Map).ToList();
         }
     }
 }

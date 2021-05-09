@@ -4,6 +4,7 @@ using Data;
 using System.Linq;
 using DataAccess.Abstraction;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
@@ -11,12 +12,12 @@ namespace DataAccess.Repositories
     {
         public SystemBlockRepository(ComputerSalonContext context): base(context) {}
 
-        public IList<SystemBlock> ReadAllWithComponents()
+        public async Task<IList<SystemBlock>> ReadAllWithComponents()
         {
-            return context.SystemBlocks
+            return await context.SystemBlocks
                 .Include(systemBlock => systemBlock.SystemBlockComponents)
                     .ThenInclude(systemBlockComponent => systemBlockComponent.Component)
-                .ToList();
+                .ToListAsync();
                 
         }
     }

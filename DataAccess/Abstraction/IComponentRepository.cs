@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Data;
 
 namespace DataAccess.Abstraction
 {
     public interface IComponentRepository: IGenericRepository<Int32, Component>
     {
-        IList<Component> ReadAllByType(int type);
+        Task<IList<Component>> ReadAllByType(int type);
     }
 }

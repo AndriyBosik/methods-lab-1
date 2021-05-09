@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 using ApplicationLogic.Interfaces;
 using Data;
 using DataAccess.Abstraction;
@@ -22,9 +22,9 @@ namespace ApplicationLogic.Services
             this.mapper = new SystemBlockMapper();
         }
 
-        public IList<Models.SystemBlock> GetSystemBlocks()
+        public async Task<IList<Models.SystemBlock>> GetSystemBlocks()
         {
-            IList<Data.SystemBlock> systemBlocks = unitOfWork.SystemBlockRepository.ReadAllWithComponents();
+            IList<Data.SystemBlock> systemBlocks = await unitOfWork.SystemBlockRepository.ReadAllWithComponents();
             IList<Models.SystemBlock> answer = new List<Models.SystemBlock>();
 
             foreach (Data.SystemBlock systemBlock in systemBlocks)

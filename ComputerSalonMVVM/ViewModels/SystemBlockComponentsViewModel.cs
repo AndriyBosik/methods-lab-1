@@ -8,6 +8,7 @@ using Models;
 using ComputerSalonMVVM.Commands;
 using ApplicationLogic.Interfaces;
 using ComputerSalonMVVM.Abstraction;
+using System.Windows;
 
 namespace ComputerSalonMVVM.ViewModels
 {

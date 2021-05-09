@@ -1,9 +1,15 @@
 ﻿using ComputerSalonMVVM.Abstraction;
 
+using Microsoft.Extensions.DependencyInjection;
+
+using System;
+using System.Windows;
+
 namespace ComputerSalonMVVM.ViewModels
 {
     class MainViewModel: ViewModelBase
     {
+        private IServiceProvider provider;
         private SystemBlockComponentsViewModel systemBlockComponentsViewModel;
         private HomePageViewModel homePageViewModel;
         private CollectedViewModel collectedViewModel;
@@ -14,56 +20,29 @@ namespace ComputerSalonMVVM.ViewModels
 
         public SystemBlockComponentsViewModel SystemBlockComponentsViewModel
         {
-            get => systemBlockComponentsViewModel;
-            set
-            {
-                systemBlockComponentsViewModel = value;
-                OnPropertyChanged(nameof(SystemBlockComponentsViewModel));
-            }
+            get => provider.GetService<SystemBlockComponentsViewModel>();
         }
 
         public HomePageViewModel HomePageViewModel
         {
-            get => homePageViewModel;
-            set
-            {
-                homePageViewModel = value;
-                OnPropertyChanged(nameof(HomePageViewModel));
-            }
+            get => provider.GetService<HomePageViewModel>();
         }
 
         public CollectedViewModel CollectedViewModel
         {
-            get => collectedViewModel;
-            set
-            {
-                collectedViewModel = value;
-                OnPropertyChanged(nameof(CollectedViewModel));
-            }
+            get => provider.GetService<CollectedViewModel>();
         }
 
         public SystemBlockViewModel SystemBlockViewModel
         {
-            get => systemBlockViewModel;
-            set
-            {
-                systemBlockViewModel = value;
-                OnPropertyChanged(nameof(SystemBlockViewModel));
-            }
+            get => provider.GetService<SystemBlockViewModel>();
         }
 
         public MainViewModel(INavigationService navigationService,
-                             SystemBlockComponentsViewModel systemBlockComponentsViewModel,
-                             HomePageViewModel homePageViewModel,
-                             CollectedViewModel collectedViewModel,
-                             SystemBlockViewModel systemBlockViewModel)
+                             IServiceProvider provider)
         {
+            this.provider = provider;
             Navigation = navigationService;
-
-            SystemBlockComponentsViewModel = systemBlockComponentsViewModel;
-            HomePageViewModel = homePageViewModel;
-            CollectedViewModel = collectedViewModel;
-            SystemBlockViewModel = systemBlockViewModel;
         }
 
     }

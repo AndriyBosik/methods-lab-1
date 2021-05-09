@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
@@ -16,31 +17,33 @@ namespace DataAccess.Repositories
             this.table = this.context.Set<T>();
         }
 
-        public void Create(T entity)
+        public async Task Create(T entity)
         {
-            table.Add(entity);
+            await table.AddAsync(entity);
+            await this.context.SaveChangesAsync();
         }
 
-        public void Delete(K key)
+        public async Task Delete(K key)
         {
-            T obj = table.Find(key);
+            T obj = await table.FindAsync(key);
             table.Remove(obj);
+            await this.context.SaveChangesAsync();
         }
 
-        public T Read(K key)
+        public async Task<T> Read(K key)
         {
-            return table.Find(key);
+            return await table.FindAsync(key);
         }
 
-        public IList<T> ReadAll()
+        public async Task<IList<T>> ReadAll()
         {
-            return table.ToList();
+            return await table.ToListAsync();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             this.context.Entry(entity).State = EntityState.Modified;
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
         }
     }
 }

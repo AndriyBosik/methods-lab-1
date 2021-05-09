@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DataAccess.Abstraction
 {
     public interface IGenericRepository<K, T>
     {
-        void Create(T entity);
+        Task Create(T entity);
 
-        T Read(K key);
+        Task<T> Read(K key);
 
-        void Update(T entity);
+        Task Update(T entity);
 
-        void Delete(K key);
+        Task Delete(K key);
 
-        IList<T> ReadAll();
+        Task<IList<T>> ReadAll();
     }
 }

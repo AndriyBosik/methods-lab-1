@@ -8,20 +8,24 @@ using ApplicationLogic.Services;
 using ApplicationLogic.Handlers;
 
 using Models;
+using System.Threading.Tasks;
 
 namespace ApplicationLogic.Containers
 {
     class ComponentsContainer: IContainer
     {
         private IList<SystemComponentBase> components;
+        private ITypeService typeService;
         private Boolean hasError;
         private readonly ComponentType componentType;
-        private readonly Boolean isMultiply;
+        private Boolean isMultiply;
 
         public ComponentsContainer(ComponentType componentType, ITypeService typeService)
         {
             this.componentType = componentType;
-            isMultiply = typeService.IsMultiply(componentType);
+            this.typeService = typeService;
+
+            CheckIfMultiply();
 
             hasError = false;
             components = new List<SystemComponentBase>();
@@ -42,6 +46,11 @@ namespace ApplicationLogic.Containers
         public IList<SystemComponentBase> GetItems()
         {
             return components.Select(component => component as SystemComponentBase).ToList();
+        }
+
+        private async Task CheckIfMultiply()
+        {
+            isMultiply = await typeService.IsMultiply(componentType);
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstraction;
 using DataAccess.Repositories;
+using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -37,9 +38,9 @@ namespace DataAccess
             ValueRepository = new ValueRepository(context);
         }
 
-        public void Save()
+        public async Task Save()
         {
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }

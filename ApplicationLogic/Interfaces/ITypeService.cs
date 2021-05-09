@@ -1,9 +1,10 @@
 ﻿using Models;
+using System.Threading.Tasks;
 
 namespace ApplicationLogic.Interfaces
 {
     public interface ITypeService
     {
-        bool IsMultiply(ComponentType componentType);
+        public Task<bool> IsMultiply(ComponentType componentType);
     }
 }

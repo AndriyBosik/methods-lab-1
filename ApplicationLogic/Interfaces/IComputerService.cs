@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading.Tasks;
 using Models;
 
 namespace ApplicationLogic.Interfaces
 {
     public interface IComputerService
     {
-        IList<Processor> GetProcessors();
+        Task<IList<Processor>> GetProcessors();
 
-        IList<Motherboard> GetMotherboards();
+        Task<IList<Motherboard>> GetMotherboards();
 
-        IList<MemoryCard> GetMemoryCards();
+        Task<IList<MemoryCard>> GetMemoryCards();
 
-        IList<PowerSupply> GetPowerSuppliers();
+        Task<IList<PowerSupply>> GetPowerSuppliers();
 
-        IList<SystemBlockHull> GetSystemBlockHulls();
+        Task<IList<SystemBlockHull>> GetSystemBlockHulls();
     }
 }

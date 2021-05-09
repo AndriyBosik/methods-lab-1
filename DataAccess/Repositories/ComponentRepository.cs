@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 
 using DataAccess.Abstraction;
+using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
@@ -14,13 +15,13 @@ namespace DataAccess.Repositories
     {
         public ComponentRepository(ComputerSalonContext context): base(context) {}
 
-        public IList<Component> ReadAllByType(Int32 type)
+        public async Task<IList<Component>> ReadAllByType(Int32 type)
         {
-            return context.Components
+            return await context.Components
                 .Include(component => component.Values)
                     .ThenInclude(value => value.Attribute)
                 .Where(component => component.TypeId == type)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

@@ -7,11 +7,14 @@ using Models;
 
 using ApplicationLogic.Interfaces;
 using ApplicationLogic.Services;
+using System.Threading.Tasks;
 
 namespace ApplicationLogic
 {
     public class ComponentsHolder: IComponentsHolder
     {
+        private IComputerService service;
+
         public IList<MemoryCard> MemoryCards
         { get; set; }
 
@@ -31,11 +34,23 @@ namespace ApplicationLogic
 
         public ComponentsHolder(IComputerService service)
         {
-            MemoryCards = service.GetMemoryCards();
-            Motherboards = service.GetMotherboards();
-            PowerSuppliers = service.GetPowerSuppliers();
-            Processors = service.GetProcessors();
-            SystemBlockHulls = service.GetSystemBlockHulls();
+            this.service = service;
+
+            Task.Run(() => GetComponents()).Wait();
+        }
+
+        private async Task GetComponents()
+        {
+            await Task.WhenAll(
+                new List<Task>()
+                {
+                    Task.Run(async () => { MemoryCards = await service.GetMemoryCards(); }),
+                    Task.Run(async () => { Motherboards = await service.GetMotherboards(); }),
+                    Task.Run(async () => { PowerSuppliers = await service.GetPowerSuppliers(); }),
+                    Task.Run(async () => { Processors = await service.GetProcessors(); }),
+                    Task.Run(async () => { SystemBlockHulls = await service.GetSystemBlockHulls(); }),
+                }
+            );
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,6 +14,7 @@ namespace ComputerSalonMVVM.ViewModels
 {
     class CollectedViewModel: ViewModelBase
     {
+        private ISystemBlockService systemBlockService;
         private ICommand goBackCommand;
         private SystemBlock selectedSystemBlock;
         private ObservableCollection<SystemBlock> systemBlocks;
@@ -44,10 +46,18 @@ namespace ComputerSalonMVVM.ViewModels
 
         public CollectedViewModel(INavigationService navigation, ISystemBlockService systemBlockService)
         {
+            this.systemBlockService = systemBlockService;
+
             goBackCommand = new GoBackCommand(navigation);
 
             SelectedSystemBlock = new SystemBlock();
-            SystemBlocks = new ObservableCollection<SystemBlock>(systemBlockService.GetSystemBlocks());
+            GetSystemBlocks();
+        }
+
+        private async void GetSystemBlocks()
+        {
+            IList<SystemBlock> allSystemBlocks = await systemBlockService.GetSystemBlocks();
+            SystemBlocks = new ObservableCollection<SystemBlock>(allSystemBlocks);
         }
     }
 }

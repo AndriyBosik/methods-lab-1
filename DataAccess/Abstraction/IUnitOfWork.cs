@@ -1,4 +1,6 @@
-﻿namespace DataAccess.Abstraction
+﻿using System.Threading.Tasks;
+
+namespace DataAccess.Abstraction
 {
     public interface IUnitOfWork
     {
@@ -20,6 +22,6 @@
         public IValueRepository ValueRepository
         { get; }
 
-        public void Save();
+        public Task Save();
     }
 }

@@ -8,6 +8,10 @@ namespace Mappers.Parsers
     {
         protected override int Parse(String value)
         {
+            if (value == null)
+            {
+                return 0;
+            }
             return Int32.Parse(value);
         }
     }

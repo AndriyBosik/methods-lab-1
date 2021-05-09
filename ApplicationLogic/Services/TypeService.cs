@@ -8,6 +8,7 @@ using DataAccess.Abstraction;
 using Models;
 
 using ApplicationLogic.Interfaces;
+using System.Threading.Tasks;
 
 namespace ApplicationLogic.Services
 {
@@ -20,9 +21,9 @@ namespace ApplicationLogic.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public bool IsMultiply(ComponentType componentType)
+        public async Task<bool> IsMultiply(ComponentType componentType)
         {
-            return unitOfWork.TypeRepository.Read((Int32) componentType).IsMultiply;
+            return (await unitOfWork.TypeRepository.Read((Int32) componentType)).IsMultiply;
         }
     }
 }

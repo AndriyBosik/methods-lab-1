@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MVVMModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace ComputerSalonMVVM.Services
@@ -33,8 +34,9 @@ namespace ComputerSalonMVVM.Services
             Services.AddSingleton<IUnitOfWork, UnitOfWork>();
 
             Services.AddDbContext<ComputerSalonContext>(options =>
-                options.UseNpgsql("Host=localhost;Port=5432;Database=ComputerSalonEAV;Username=postgres;Password=postgres"));
+                options.UseNpgsql(ConfigurationManager.ConnectionStrings["ComputerSalonDB"].ConnectionString));
 
+            Services.AddSingleton<IServiceProvider>(x => ServiceProvider);
             Services.AddTransient<INavigationService>(x => navigationService);
             Services.AddTransient<SystemBlockComponents>();
             
