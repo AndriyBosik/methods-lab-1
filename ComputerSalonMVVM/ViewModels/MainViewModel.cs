@@ -10,9 +10,9 @@ namespace ComputerSalonMVVM.ViewModels
     class MainViewModel: ViewModelBase
     {
         private IServiceProvider provider;
+
         private SystemBlockComponentsViewModel systemBlockComponentsViewModel;
         private HomePageViewModel homePageViewModel;
-        private CollectedViewModel collectedViewModel;
         private SystemBlockViewModel systemBlockViewModel;
 
         public INavigationService Navigation
@@ -20,12 +20,12 @@ namespace ComputerSalonMVVM.ViewModels
 
         public SystemBlockComponentsViewModel SystemBlockComponentsViewModel
         {
-            get => provider.GetService<SystemBlockComponentsViewModel>();
+            get => systemBlockComponentsViewModel;
         }
 
         public HomePageViewModel HomePageViewModel
         {
-            get => provider.GetService<HomePageViewModel>();
+            get => homePageViewModel;
         }
 
         public CollectedViewModel CollectedViewModel
@@ -35,7 +35,7 @@ namespace ComputerSalonMVVM.ViewModels
 
         public SystemBlockViewModel SystemBlockViewModel
         {
-            get => provider.GetService<SystemBlockViewModel>();
+            get => systemBlockViewModel;
         }
 
         public MainViewModel(INavigationService navigationService,
@@ -43,6 +43,10 @@ namespace ComputerSalonMVVM.ViewModels
         {
             this.provider = provider;
             Navigation = navigationService;
+
+            systemBlockComponentsViewModel = provider.GetService<SystemBlockComponentsViewModel>();
+            homePageViewModel = provider.GetService<HomePageViewModel>();
+            systemBlockViewModel = provider.GetService<SystemBlockViewModel>();
         }
 
     }

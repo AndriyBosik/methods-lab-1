@@ -56,7 +56,7 @@ namespace ComputerSalonMVVM.ViewModels
 
         private async void GetSystemBlocks()
         {
-            IList<SystemBlock> allSystemBlocks = await systemBlockService.GetSystemBlocks();
+            IList<SystemBlock> allSystemBlocks = await systemBlockService.GetSystemBlocksAsync();
             SystemBlocks = new ObservableCollection<SystemBlock>(allSystemBlocks);
         }
     }

@@ -36,21 +36,16 @@ namespace ApplicationLogic
         {
             this.service = service;
 
-            Task.Run(() => GetComponents()).Wait();
+            GetComponents();
         }
 
-        private async Task GetComponents()
+        private async void GetComponents()
         {
-            await Task.WhenAll(
-                new List<Task>()
-                {
-                    Task.Run(async () => { MemoryCards = await service.GetMemoryCards(); }),
-                    Task.Run(async () => { Motherboards = await service.GetMotherboards(); }),
-                    Task.Run(async () => { PowerSuppliers = await service.GetPowerSuppliers(); }),
-                    Task.Run(async () => { Processors = await service.GetProcessors(); }),
-                    Task.Run(async () => { SystemBlockHulls = await service.GetSystemBlockHulls(); }),
-                }
-            );
+            MemoryCards = await service.GetMemoryCardsAsync();
+            Motherboards = await service.GetMotherboardsAsync();
+            PowerSuppliers = await service.GetPowerSuppliersAsync();
+            Processors = await service.GetProcessorsAsync();
+            SystemBlockHulls = await service.GetSystemBlockHullsAsync();
         }
     }
 }

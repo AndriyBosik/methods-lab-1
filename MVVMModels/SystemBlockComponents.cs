@@ -38,7 +38,6 @@ namespace MVVMModels
             Components = new Dictionary<ComponentType, ObservableCollection<SystemComponentBase>>();
 
             InitDictionary();
-
             InitComponentsData();
         }
 
@@ -58,11 +57,11 @@ namespace MVVMModels
 
         private async void InitComponentsData()
         {
-            AddElements(ComponentType.MemoryCard, await service.GetMemoryCards());
-            AddElements(ComponentType.Motherboard, await service.GetMotherboards());
-            AddElements(ComponentType.Processor, await service.GetProcessors());
-            AddElements(ComponentType.PowerSupply, await service.GetPowerSuppliers());
-            AddElements(ComponentType.SystemBlockHull, await service.GetSystemBlockHulls());
+            AddElements(ComponentType.MemoryCard, await service.GetMemoryCardsAsync());
+            AddElements(ComponentType.Motherboard, await service.GetMotherboardsAsync());
+            AddElements(ComponentType.Processor, await service.GetProcessorsAsync());
+            AddElements(ComponentType.PowerSupply, await service.GetPowerSuppliersAsync());
+            AddElements(ComponentType.SystemBlockHull, await service.GetSystemBlockHullsAsync());
         }
 
         private void AddElements<T>(ComponentType type, IList<T> components) where T: SystemComponentBase
@@ -71,15 +70,6 @@ namespace MVVMModels
             {
                 Components[type].Add((SystemComponentBase)component);
             }
-        }
-
-        private ObservableCollection<SystemComponentBase> GetObservable<T>(IList<T> components)
-        {
-            return new ObservableCollection<SystemComponentBase>(
-                components
-                    .Cast<SystemComponentBase>()
-                    .ToList()
-            );
         }
     }
 }

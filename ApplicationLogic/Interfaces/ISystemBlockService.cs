@@ -10,6 +10,6 @@ namespace ApplicationLogic.Interfaces
     {
         public void Save(SystemBlock systemBlock);
 
-        public Task<IList<SystemBlock>> GetSystemBlocks();
+        public Task<IList<SystemBlock>> GetSystemBlocksAsync();
     }
 }

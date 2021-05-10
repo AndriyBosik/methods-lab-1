@@ -7,14 +7,14 @@ namespace DataAccess.Abstraction
 {
     public interface IGenericRepository<K, T>
     {
-        Task Create(T entity);
+        Task CreateAsync(T entity);
 
-        Task<T> Read(K key);
+        Task<T> ReadAsync(K key);
 
-        Task Update(T entity);
+        Task UpdateAsync(T entity);
 
-        Task Delete(K key);
+        Task DeleteAsync(K key);
 
-        Task<IList<T>> ReadAll();
+        Task<IList<T>> ReadAllAsync();
     }
 }

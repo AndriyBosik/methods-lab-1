@@ -17,30 +17,30 @@ namespace DataAccess.Repositories
             this.table = this.context.Set<T>();
         }
 
-        public async Task Create(T entity)
+        public async Task CreateAsync(T entity)
         {
             await table.AddAsync(entity);
             await this.context.SaveChangesAsync();
         }
 
-        public async Task Delete(K key)
+        public async Task DeleteAsync(K key)
         {
             T obj = await table.FindAsync(key);
             table.Remove(obj);
             await this.context.SaveChangesAsync();
         }
 
-        public async Task<T> Read(K key)
+        public async Task<T> ReadAsync(K key)
         {
             return await table.FindAsync(key);
         }
 
-        public async Task<IList<T>> ReadAll()
+        public async Task<IList<T>> ReadAllAsync()
         {
             return await table.ToListAsync();
         }
 
-        public async Task Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             this.context.Entry(entity).State = EntityState.Modified;
             await this.context.SaveChangesAsync();

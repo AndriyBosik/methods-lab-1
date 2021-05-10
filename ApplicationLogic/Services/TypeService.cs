@@ -21,9 +21,9 @@ namespace ApplicationLogic.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> IsMultiply(ComponentType componentType)
+        public async Task<bool> IsMultiplyAsync(ComponentType componentType)
         {
-            return (await unitOfWork.TypeRepository.Read((Int32) componentType)).IsMultiply;
+            return (await unitOfWork.TypeRepository.ReadAsync((Int32) componentType)).IsMultiply;
         }
     }
 }

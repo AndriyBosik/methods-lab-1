@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationLogic.Containers
 {
-    class ComponentsContainer: IContainer
+    public class ComponentsContainer: IContainer
     {
         private IList<SystemComponentBase> components;
         private ITypeService typeService;
@@ -24,6 +24,7 @@ namespace ApplicationLogic.Containers
         {
             this.componentType = componentType;
             this.typeService = typeService;
+
 
             CheckIfMultiply();
 
@@ -50,7 +51,7 @@ namespace ApplicationLogic.Containers
 
         private async Task CheckIfMultiply()
         {
-            isMultiply = await typeService.IsMultiply(componentType);
+            isMultiply = await typeService.IsMultiplyAsync(componentType);
         }
 
     }

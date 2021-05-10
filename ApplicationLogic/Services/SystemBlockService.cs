@@ -22,9 +22,9 @@ namespace ApplicationLogic.Services
             this.mapper = new SystemBlockMapper();
         }
 
-        public async Task<IList<Models.SystemBlock>> GetSystemBlocks()
+        public async Task<IList<Models.SystemBlock>> GetSystemBlocksAsync()
         {
-            IList<Data.SystemBlock> systemBlocks = await unitOfWork.SystemBlockRepository.ReadAllWithComponents();
+            IList<Data.SystemBlock> systemBlocks = await unitOfWork.SystemBlockRepository.ReadAllWithComponentsAsync();
             IList<Models.SystemBlock> answer = new List<Models.SystemBlock>();
 
             foreach (Data.SystemBlock systemBlock in systemBlocks)
@@ -47,8 +47,8 @@ namespace ApplicationLogic.Services
 
         public void Save(Models.SystemBlock systemBlock)
         {
-            unitOfWork.SystemBlockRepository.Create(mapper.MapToEntity(systemBlock));
-            unitOfWork.Save();
+            unitOfWork.SystemBlockRepository.CreateAsync(mapper.MapToEntity(systemBlock));
+            unitOfWork.SaveAsync();
         }
 
         private SystemComponentBase MapToComponent(Component component)

@@ -12,7 +12,7 @@ namespace DataAccess.Repositories
     {
         public SystemBlockRepository(ComputerSalonContext context): base(context) {}
 
-        public async Task<IList<SystemBlock>> ReadAllWithComponents()
+        public async Task<IList<SystemBlock>> ReadAllWithComponentsAsync()
         {
             return await context.SystemBlocks
                 .Include(systemBlock => systemBlock.SystemBlockComponents)

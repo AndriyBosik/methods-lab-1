@@ -8,14 +8,14 @@ namespace ApplicationLogic.Interfaces
 {
     public interface IComputerService
     {
-        Task<IList<Processor>> GetProcessors();
+        Task<IList<Processor>> GetProcessorsAsync();
 
-        Task<IList<Motherboard>> GetMotherboards();
+        Task<IList<Motherboard>> GetMotherboardsAsync();
 
-        Task<IList<MemoryCard>> GetMemoryCards();
+        Task<IList<MemoryCard>> GetMemoryCardsAsync();
 
-        Task<IList<PowerSupply>> GetPowerSuppliers();
+        Task<IList<PowerSupply>> GetPowerSuppliersAsync();
 
-        Task<IList<SystemBlockHull>> GetSystemBlockHulls();
+        Task<IList<SystemBlockHull>> GetSystemBlockHullsAsync();
     }
 }

@@ -27,19 +27,20 @@ namespace ComputerSalonMVVM.Services
         {
             Services = new ServiceCollection();
 
-            Services.AddTransient<IComputerService, ComputerService>();
-            Services.AddTransient<ISystemBlockHandler, SystemBlockHandler>();
-            Services.AddTransient<ISystemBlockService, SystemBlockService>();
-            Services.AddTransient<ITypeService, TypeService>();
-            Services.AddSingleton<IUnitOfWork, UnitOfWork>();
-
             Services.AddDbContext<ComputerSalonContext>(options =>
                 options.UseNpgsql(ConfigurationManager.ConnectionStrings["ComputerSalonDB"].ConnectionString));
-
-            Services.AddSingleton<IServiceProvider>(x => ServiceProvider);
-            Services.AddTransient<INavigationService>(x => navigationService);
-            Services.AddTransient<SystemBlockComponents>();
             
+            Services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            Services.AddSingleton<IServiceProvider>(x => ServiceProvider);
+            Services.AddSingleton<INavigationService>(x => navigationService);
+            Services.AddSingleton<SystemBlockComponents>();
+
+            Services.AddTransient<IComputerService, ComputerService>();
+
+            Services.AddSingleton<ISystemBlockHandler, SystemBlockHandler>();
+            
+            Services.AddTransient<ISystemBlockService, SystemBlockService>();
+            Services.AddTransient<ITypeService, TypeService>();
             Services.AddTransient<SystemBlockComponentsViewModel>();
             Services.AddTransient<HomePageViewModel>();
             Services.AddTransient<CollectedViewModel>();

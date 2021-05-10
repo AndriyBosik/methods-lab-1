@@ -7,7 +7,7 @@ using Models;
 
 namespace ApplicationLogic.Validators
 {
-    class ContainerValidator : IValidator
+    public class ContainerValidator : IValidator
     {
         public IValidator Next
         { get; set; }

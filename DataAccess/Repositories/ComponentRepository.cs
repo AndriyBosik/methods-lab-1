@@ -15,7 +15,7 @@ namespace DataAccess.Repositories
     {
         public ComponentRepository(ComputerSalonContext context): base(context) {}
 
-        public async Task<IList<Component>> ReadAllByType(Int32 type)
+        public async Task<IList<Component>> ReadAllByTypeAsync(Int32 type)
         {
             return await context.Components
                 .Include(component => component.Values)

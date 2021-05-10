@@ -22,6 +22,6 @@ namespace DataAccess.Abstraction
         public IValueRepository ValueRepository
         { get; }
 
-        public Task Save();
+        public Task SaveAsync();
     }
 }
